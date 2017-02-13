@@ -1,20 +1,23 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
 
 target 'YourChoice' do
-    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-    use_frameworks!
-    
-    # Pods for YourChoice
+    pod 'Firebase'
     pod 'Firebase/Core'
-    target 'YourChoiceTests' do
-        inherit! :search_paths
-        # Pods for testing
-    end
-    
-    target 'YourChoiceUITests' do
-        inherit! :search_paths
-        # Pods for testing
-    end
-    
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'SwiftValidator', '3.0.3'
 end
+
+target 'YourChoiceTests' do
+    inherit! :search_paths
+    # Pods for testing
+end
+
+target 'YourChoiceUITests' do
+    inherit! :search_paths
+    # Pods for testing
+end
+
