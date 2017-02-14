@@ -113,7 +113,7 @@ public class Validator {
      - parameter rules: A Rule array that holds different rules that apply to said textField.
      - returns: No return value
      */
-    public func registerField(textField:UITextField, errorLabel:UILabel, rules:[Rule]) {
+    public func registerField(_ textField:UITextField, errorLabel:UILabel, rules:[Rule]) {
         validations[textField] = ValidationRule(textField: textField, rules:rules, errorLabel:errorLabel)
     }
     
@@ -133,7 +133,7 @@ public class Validator {
      
      - returns: No return value.
      */
-    public func validate(delegate:ValidationDelegate) {
+    public func validate(_ delegate:ValidationDelegate) {
         
         self.validateAllFields()
         

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1DD55116B3EF688B75A30543 /* Pods_YourChoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273C25D864DA5DE32D8E2876 /* Pods_YourChoice.framework */; };
 		236ED185753EA4320ED4CB03 /* Pods_YourChoiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FA20444DBFD71C0F4EA738 /* Pods_YourChoiceUITests.framework */; };
+		824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684541E5346DD0006E408 /* YCBaseViewController.swift */; };
+		824684581E534B4C0006E408 /* YCUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684571E534B4C0006E408 /* YCUtils.swift */; };
+		8246845A1E534D550006E408 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684591E534D550006E408 /* Constants.swift */; };
+		8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246845B1E534DCF0006E408 /* YCLoginViewController.swift */; };
+		8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246845D1E53583B0006E408 /* YCActivityIndicator.swift */; };
+		824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684601E5362BF0006E408 /* ViewControllerExtensions.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -46,6 +52,12 @@
 		273C25D864DA5DE32D8E2876 /* Pods_YourChoice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourChoice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		464A7A810173074482C04BAD /* Pods-YourChoiceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourChoiceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YourChoiceUITests/Pods-YourChoiceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		53FA20444DBFD71C0F4EA738 /* Pods_YourChoiceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourChoiceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		824684541E5346DD0006E408 /* YCBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCBaseViewController.swift; path = Controllers/YCBaseViewController.swift; sourceTree = "<group>"; };
+		824684571E534B4C0006E408 /* YCUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCUtils.swift; path = Utils/YCUtils.swift; sourceTree = "<group>"; };
+		824684591E534D550006E408 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
+		8246845B1E534DCF0006E408 /* YCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCLoginViewController.swift; path = Controllers/YCLoginViewController.swift; sourceTree = "<group>"; };
+		8246845D1E53583B0006E408 /* YCActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCActivityIndicator.swift; path = Utils/YCActivityIndicator.swift; sourceTree = "<group>"; };
+		824684601E5362BF0006E408 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerExtensions.swift; path = Extensions/ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +120,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		824684531E5346620006E408 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				824684541E5346DD0006E408 /* YCBaseViewController.swift */,
+				8246845B1E534DCF0006E408 /* YCLoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		824684561E534A900006E408 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				824684571E534B4C0006E408 /* YCUtils.swift */,
+				824684591E534D550006E408 /* Constants.swift */,
+				8246845D1E53583B0006E408 /* YCActivityIndicator.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		8246845F1E5362150006E408 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				824684601E5362BF0006E408 /* ViewControllerExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		82C507CB1E51CD9D005D1DF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +181,9 @@
 		82F7CECD1E4F8B23001FB75D /* YourChoice */ = {
 			isa = PBXGroup;
 			children = (
+				8246845F1E5362150006E408 /* Extensions */,
+				824684561E534A900006E408 /* Utils */,
+				824684531E5346620006E408 /* Controllers */,
 				82C507CB1E51CD9D005D1DF7 /* Views */,
 				82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */,
 				82F7CED01E4F8B23001FB75D /* ViewController.swift */,
@@ -468,9 +510,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824684581E534B4C0006E408 /* YCUtils.swift in Sources */,
 				82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */,
+				8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */,
+				8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */,
 				82F7CED11E4F8B23001FB75D /* ViewController.swift in Sources */,
 				82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */,
+				824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */,
+				824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */,
+				8246845A1E534D550006E408 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
