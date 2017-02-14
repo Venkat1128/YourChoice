@@ -54,6 +54,9 @@ class YCValidation: UIView {
         inputTextField.placeholder = placeholder
         inputTextField.autocorrectionType = .no
         errorLabel.isHidden = true
+        inputTextField.layer.borderWidth = 1.0
+        inputTextField.layer.cornerRadius  = 12.0
+        inputTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func setup() {
