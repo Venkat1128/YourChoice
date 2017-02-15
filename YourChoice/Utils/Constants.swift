@@ -8,6 +8,29 @@
 
 import Foundation
 
+struct FirebaseConstants {
+    static let Users = "users"
+    static let Username = "username"
+    static let ProfilePictureId = "profile_picture_id"
+    static let VotedPolls = "voted_polls"
+    
+    static let Polls = "polls"
+    static let Question = "question"
+    static let UserId = "user_id"
+    static let CreationDate = "creation_date"
+    static let Closed = "closed"
+    static let PhotosUploaded = "photos_uploaded"
+    static let SelectedOption = "selected_option"
+    static let PollOptions = "poll_options"
+    static let PollPictureId = "poll_picture_id"
+    static let PollPictureThumbnailId = "poll_picture_thumbnail_id"
+    static let VoteCount = "vote_count"
+    
+    static let InfoConnected = ".info/connected"
+    
+    static let BucketProfilePictures = "profile_pictures"
+    static let BucketPollPictures = "poll_pictures"
+}
 struct Button {
     static let Ok = "Ok"
     static let Cancel = "Cancel"

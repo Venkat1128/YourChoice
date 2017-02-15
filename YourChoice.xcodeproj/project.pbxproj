@@ -15,6 +15,12 @@
 		8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246845B1E534DCF0006E408 /* YCLoginViewController.swift */; };
 		8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246845D1E53583B0006E408 /* YCActivityIndicator.swift */; };
 		824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684601E5362BF0006E408 /* ViewControllerExtensions.swift */; };
+		824684641E546BC30006E408 /* YCDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684631E546BC30006E408 /* YCDataModel.swift */; };
+		8246846D1E5475180006E408 /* YourChoice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8246846B1E5475180006E408 /* YourChoice.xcdatamodeld */; };
+		8246846F1E5477110006E408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246846E1E5477110006E408 /* User.swift */; };
+		824684721E5478F40006E408 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684701E5478F40006E408 /* Photo.swift */; };
+		824684771E547BD50006E408 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684761E547BD50006E408 /* ImageCache.swift */; };
+		824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684781E547D200006E408 /* CoreDataStackManager.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -58,6 +64,12 @@
 		8246845B1E534DCF0006E408 /* YCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCLoginViewController.swift; path = Controllers/YCLoginViewController.swift; sourceTree = "<group>"; };
 		8246845D1E53583B0006E408 /* YCActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCActivityIndicator.swift; path = Utils/YCActivityIndicator.swift; sourceTree = "<group>"; };
 		824684601E5362BF0006E408 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerExtensions.swift; path = Extensions/ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		824684631E546BC30006E408 /* YCDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCDataModel.swift; path = ModalClasses/YCDataModel.swift; sourceTree = "<group>"; };
+		8246846C1E5475180006E408 /* YourChoice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YourChoice.xcdatamodel; sourceTree = "<group>"; };
+		8246846E1E5477110006E408 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Core Data/User.swift"; sourceTree = "<group>"; };
+		824684701E5478F40006E408 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = "Core Data/Photo.swift"; sourceTree = "<group>"; };
+		824684761E547BD50006E408 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		824684781E547D200006E408 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +159,26 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		824684621E546B770006E408 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				824684631E546BC30006E408 /* YCDataModel.swift */,
+			);
+			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+		824684651E546FAE0006E408 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				8246846B1E5475180006E408 /* YourChoice.xcdatamodeld */,
+				8246846E1E5477110006E408 /* User.swift */,
+				824684701E5478F40006E408 /* Photo.swift */,
+				824684761E547BD50006E408 /* ImageCache.swift */,
+				824684781E547D200006E408 /* CoreDataStackManager.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		82C507CB1E51CD9D005D1DF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +213,8 @@
 		82F7CECD1E4F8B23001FB75D /* YourChoice */ = {
 			isa = PBXGroup;
 			children = (
+				824684651E546FAE0006E408 /* Core Data */,
+				824684621E546B770006E408 /* Model Classes */,
 				8246845F1E5362150006E408 /* Extensions */,
 				824684561E534A900006E408 /* Utils */,
 				824684531E5346620006E408 /* Controllers */,
@@ -511,13 +545,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				824684581E534B4C0006E408 /* YCUtils.swift in Sources */,
+				824684721E5478F40006E408 /* Photo.swift in Sources */,
 				82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */,
 				8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */,
 				8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */,
 				82F7CED11E4F8B23001FB75D /* ViewController.swift in Sources */,
+				8246846D1E5475180006E408 /* YourChoice.xcdatamodeld in Sources */,
 				82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */,
+				824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */,
 				824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */,
+				8246846F1E5477110006E408 /* User.swift in Sources */,
+				824684641E546BC30006E408 /* YCDataModel.swift in Sources */,
 				824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */,
+				824684771E547BD50006E408 /* ImageCache.swift in Sources */,
 				8246845A1E534D550006E408 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,6 +836,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8246846B1E5475180006E408 /* YourChoice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8246846C1E5475180006E408 /* YourChoice.xcdatamodel */,
+			);
+			currentVersion = 8246846C1E5475180006E408 /* YourChoice.xcdatamodel */;
+			name = YourChoice.xcdatamodeld;
+			path = "Core Data/YourChoice.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 82F7CEC31E4F8B23001FB75D /* Project object */;
 }

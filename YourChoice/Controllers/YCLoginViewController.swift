@@ -32,6 +32,7 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboardOnTap()
         initValidationViews()
         initValidationRules()
         // Do any additional setup after loading the view.
