@@ -85,7 +85,7 @@ struct Error {
     static let ErrorResettingPassword = "There was an error resetting your password."
     static let EmailInvalidTryAgain = "Invalid email address. Please try again."
     static let PasswordIncorrectTryAgain = "Incorrect password. Please try again."
-    static let UserDoesNotExist = "That user does not exist. Please try again."
+    static let UserDoesNotExist = "That user does not exist. Please register in to App."
     static let UnexpectedError = "An unexpected error occured. Please try again."
     static let UnableToUploadProfilePicture = "Unable to upload profile picture. Would you like to try again?"
     static let UserInfoNoData = "No data passsed to user info!"

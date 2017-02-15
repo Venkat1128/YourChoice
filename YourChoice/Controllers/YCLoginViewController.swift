@@ -41,11 +41,11 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addObservers()
-       /* DataModel.authUser() { isCurrentUser in
+        YCDataModel.authUser() { isCurrentUser in
             if isCurrentUser {
                 self.toggleRequestProgress(true)
             }
-        }*/
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +59,7 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     func validationSuccessful() {
         let email = emailValidationView.inputTextField.text!
         let password = passwordValidationView.inputTextField.text!
-        //authUser(email, password: password)
+        authUser(email, password: password)
     }
     
     func validationFailed(errors: [UITextField : ValidationError]) {
@@ -124,12 +124,12 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     
     func authUser(_ email: String, password: String) {
         toggleRequestProgress(true)
-        //DataModel.signInWithEmail(email, password: password)
+        YCDataModel.signInWithEmail(email, password: password)
     }
     
     func resetPasswordForUser(_ email: String) {
         toggleRequestProgress(true)
-       // DataModel.sendPasswordResetWithEmail(email)
+        YCDataModel.sendPasswordResetWithEmail(email)
     }
     
     func authUserCompleted(_ notification: Notification) {
