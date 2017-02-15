@@ -129,7 +129,7 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     
     func resetPasswordForUser(_ email: String) {
         toggleRequestProgress(true)
-        YCDataModel.sendPasswordResetWithEmail(email)
+        YCDataModel.resetPasswordWithEmail(email)
     }
     
     func authUserCompleted(_ notification: Notification) {

@@ -97,7 +97,7 @@ extension YCDataModel{
         }
     }
     
-    class func sendPasswordResetWithEmail(_ email: String) {
+    class func resetPasswordWithEmail(_ email: String) {
         fireAuth.sendPasswordReset(withEmail: email) { error in
             var userInfo: [String: String] = [String: String]()
             if error != nil {
