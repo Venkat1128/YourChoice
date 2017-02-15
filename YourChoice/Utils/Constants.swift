@@ -75,6 +75,15 @@ struct Message {
     static let AddPollQuestion = "Please add a question to the poll."
     static let AddPollPictures = "Please add a minimum of two pictures to the poll."
 }
+struct ImageConstants {
+    static let ProfilePictureJPEG = "_profile_picture.jpeg"
+    static let PollPictureJPEG = "_poll_picture_%d.jpeg"
+    static let PollPictureThumbnailJPEG = "_poll_picture_thumbnail_%d.jpeg"
+    static let ProfilePictureThumbnailWidth = 100.0
+    static let ProfilePictureThumbnailHeight = 100.0
+    static let PollPictureThumbnailWidth = 100.0
+    static let PollPictureThumbnailHeight = 100.0
+}
 struct Error {
     static let EmailInvalid = "Invalid email address."
     static let EmailRequired = "Email is required."

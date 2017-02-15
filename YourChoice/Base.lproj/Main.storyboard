@@ -96,7 +96,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="enY-bl-p5R">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="ngR-tr-fqg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="ngR-tr-fqg">
+                            <connections>
+                                <segue destination="R0S-A3-1wy" kind="push" id="abL-8X-3ud"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailValidationView" destination="obH-Yc-qqE" id="iJG-Z0-Uvu"/>
@@ -110,10 +114,99 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
         </scene>
-        <!--Login-->
+        <!--Registation-->
+        <scene sceneID="2ga-pm-x3h">
+            <objects>
+                <viewController id="R0S-A3-1wy" customClass="YCRegistationViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vUQ-8n-2o7"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfF-1s-UcM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EmW-Qp-V09">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJf-CS-cCR">
+                                <rect key="frame" x="137.5" y="99.5" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="HIo-Qb-CUu"/>
+                                    <constraint firstAttribute="height" constant="100" id="W07-Do-eST"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ITk-Eo-pfP">
+                                <rect key="frame" x="16" y="233.5" width="343" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTa-nc-LIg" customClass="YCValidation" customModule="YourChoice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Mbm-cI-AKy"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="User Name"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSn-rH-qVZ" customClass="YCValidation" customModule="YourChoice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="343" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="iQ9-wL-qg5"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN7-gK-nvL" customClass="YCValidation" customModule="YourChoice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="343" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="0i5-f3-PUx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-6A-CBZ">
+                                <rect key="frame" x="16" y="507" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nfF-1s-UcM" firstAttribute="top" secondItem="Wpb-6A-CBZ" secondAttribute="bottom" constant="130" id="4hG-Dg-MkT"/>
+                            <constraint firstItem="ITk-Eo-pfP" firstAttribute="top" relation="lessThanOrEqual" secondItem="RJf-CS-cCR" secondAttribute="bottom" constant="34" id="GmY-JI-ykZ"/>
+                            <constraint firstItem="ITk-Eo-pfP" firstAttribute="centerX" secondItem="EmW-Qp-V09" secondAttribute="centerX" id="Ohm-cB-AWI"/>
+                            <constraint firstItem="Wpb-6A-CBZ" firstAttribute="centerY" secondItem="EmW-Qp-V09" secondAttribute="centerY" constant="188.5" id="Ovc-WS-6k2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Wpb-6A-CBZ" secondAttribute="leading" id="cuV-71-7l9"/>
+                            <constraint firstItem="RJf-CS-cCR" firstAttribute="top" secondItem="vUQ-8n-2o7" secondAttribute="bottom" constant="35" id="gdP-CC-d3Y"/>
+                            <constraint firstItem="ITk-Eo-pfP" firstAttribute="centerY" secondItem="EmW-Qp-V09" secondAttribute="centerY" id="iAb-cg-vNe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ITk-Eo-pfP" secondAttribute="trailing" id="iba-ma-oY7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ITk-Eo-pfP" secondAttribute="leading" id="pdf-VK-BtN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wpb-6A-CBZ" secondAttribute="trailing" id="wfY-As-CQc"/>
+                            <constraint firstItem="RJf-CS-cCR" firstAttribute="centerX" secondItem="EmW-Qp-V09" secondAttribute="centerX" id="zKd-bG-TKZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Registation" id="pI6-ym-Fck"/>
+                    <connections>
+                        <outlet property="emailValidationView" destination="wSn-rH-qVZ" id="CMi-x5-GBS"/>
+                        <outlet property="passwordValidationView" destination="FN7-gK-nvL" id="85D-BF-5aA"/>
+                        <outlet property="profilePictureImage" destination="RJf-CS-cCR" id="bla-mY-J55"/>
+                        <outlet property="registerButton" destination="Wpb-6A-CBZ" id="6WR-OD-7aX"/>
+                        <outlet property="usernameValidationView" destination="iTa-nc-LIg" id="sEM-uW-NcR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6na-vG-iXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1890.4000000000001" y="125.4872563718141"/>
+        </scene>
+        <!--Login Nav-->
         <scene sceneID="237-sm-0dY">
             <objects>
-                <navigationController title="Login" automaticallyAdjustsScrollViewInsets="NO" id="fwJ-5g-E6P" sceneMemberID="viewController">
+                <navigationController title="Login Nav" automaticallyAdjustsScrollViewInsets="NO" id="fwJ-5g-E6P" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xFg-Ke-ZEt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
