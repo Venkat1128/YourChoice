@@ -17,11 +17,15 @@ class YCRegistationViewController: YCImagePickerViewController,UITextFieldDelega
     // MARK: - Interface builder outlets and actions.
     
     @IBOutlet weak var profilePictureImage: UIImageView!
-    @IBOutlet weak var usernameValidationView: YCValidation!
-    @IBOutlet weak var emailValidationView: YCValidation!
-    @IBOutlet weak var passwordValidationView: YCValidation!
+
     @IBOutlet weak var registerButton: UIButton!
 
+    @IBOutlet weak var passwordValidationView: YCValidation!
+    @IBOutlet weak var emailValidationView: YCValidation!
+    @IBOutlet weak var usernameValidationView: YCValidation!
+    @IBAction func registerAction(_ sender: Any) {
+        validator.validate(self)
+    }
 
     // MARK: - Lifecycle methods.
     
@@ -122,6 +126,15 @@ extension YCRegistationViewController{
         defaultCenter.removeObserver(self, name: NSNotification.Name(rawValue: NotificationNames.CreateUserCompleted), object: nil)
     }
 
+    // MARK: - UIImagePickerControllerDelegate and UINavigationControllerDelegate methods.
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            //profilePictureImage.setImage(pickedImage, for: UIControlState())
+            profilePictureImage.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
  // MARK: - REST calls and response handler methods.
 extension YCRegistationViewController{
