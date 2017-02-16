@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="22" y="316"/>
         </scene>
-        <!--View Controller-->
+        <!--Your Choice View Controller-->
         <scene sceneID="dOV-hu-xXb">
             <objects>
-                <viewController id="4kA-xR-w05" sceneMemberID="viewController">
+                <viewController id="4kA-xR-w05" customClass="YourChoiceViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h3a-6R-Wck"/>
                         <viewControllerLayoutGuide type="bottom" id="JuX-gt-xAz"/>
@@ -145,7 +145,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wCK-VG-K7L"/>
+                    <navigationItem key="navigationItem" id="wCK-VG-K7L">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="St1-Jy-z1f">
+                            <connections>
+                                <action selector="logoutAction:" destination="4kA-xR-w05" id="H7q-zK-cDq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTp-MU-wfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,7 +276,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6K-yc-oSs">
                                 <rect key="frame" x="16" y="72" width="343" height="156"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GG9-5O-JDk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="GG9-5O-JDk">
                                         <rect key="frame" x="122" y="28" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="0So-Zl-fOJ"/>
@@ -314,4 +320,7 @@
             <point key="canvasLocation" x="1818" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Profile" width="48" height="48"/>
+    </resources>
 </document>

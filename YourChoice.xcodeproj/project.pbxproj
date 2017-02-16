@@ -23,6 +23,7 @@
 		824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684781E547D200006E408 /* CoreDataStackManager.swift */; };
 		8246847B1E54B4EB0006E408 /* YCRegistationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246847A1E54B4EB0006E408 /* YCRegistationViewController.swift */; };
 		8246847D1E54B6370006E408 /* YCImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246847C1E54B6370006E408 /* YCImagePickerViewController.swift */; };
+		8246847F1E55EBC30006E408 /* YourChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246847E1E55EBC30006E408 /* YourChoiceViewController.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		824684781E547D200006E408 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		8246847A1E54B4EB0006E408 /* YCRegistationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCRegistationViewController.swift; sourceTree = "<group>"; };
 		8246847C1E54B6370006E408 /* YCImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCImagePickerViewController.swift; sourceTree = "<group>"; };
+		8246847E1E55EBC30006E408 /* YourChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourChoiceViewController.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				8246845B1E534DCF0006E408 /* YCLoginViewController.swift */,
 				8246847A1E54B4EB0006E408 /* YCRegistationViewController.swift */,
 				8246847C1E54B6370006E408 /* YCImagePickerViewController.swift */,
+				8246847E1E55EBC30006E408 /* YourChoiceViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */,
 				8246847D1E54B6370006E408 /* YCImagePickerViewController.swift in Sources */,
 				824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */,
+				8246847F1E55EBC30006E408 /* YourChoiceViewController.swift in Sources */,
 				8246846F1E5477110006E408 /* User.swift in Sources */,
 				824684641E546BC30006E408 /* YCDataModel.swift in Sources */,
 				824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */,
