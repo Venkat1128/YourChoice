@@ -150,7 +150,7 @@ extension YCRegistationViewController{
             let message = userInfo[NotificationData.Message] as! String
             createAlertController(Title.Error, message: message)
         } else {
-            navigationController?.popViewController(animated: true)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
     

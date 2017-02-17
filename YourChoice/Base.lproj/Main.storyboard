@@ -341,17 +341,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Add Poll"/>
                                 <connections>
-                                    <action selector="addPoll:" destination="TWg-Mi-2Dl" eventType="touchUpInside" id="Lzy-5a-dZF"/>
+                                    <action selector="AddChoicesAction:" destination="TWg-Mi-2Dl" eventType="touchUpInside" id="R2T-AR-qsi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose up to four images." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUY-Cz-Dbe">
-                                <rect key="frame" x="16" y="160" width="288" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose up to four images:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUY-Cz-Dbe">
+                                <rect key="frame" x="16" y="165" width="288" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xn7-MS-Mce">
-                                <rect key="frame" x="16" y="184" width="288" height="336"/>
+                                <rect key="frame" x="16" y="192.5" width="288" height="333.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ByR-n1-dat">
                                     <size key="itemSize" width="100" height="100"/>
@@ -425,26 +425,29 @@
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RLi-bp-eSg">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="268" height="90"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7YL-o9-gKo">
-                                                <rect key="frame" x="242" y="0.0" width="46" height="90"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7YL-o9-gKo">
+                                                <rect key="frame" x="270" y="0.0" width="18" height="90"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100/140  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-vr-puV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="15"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/140  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-vr-puV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="18" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-XX-m9s">
-                                                        <rect key="frame" x="0.0" y="42" width="46" height="48"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-XX-m9s">
+                                                        <rect key="frame" x="0.0" y="66" width="18" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="Button" image="PollQues"/>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Tjk-XX-m9s" firstAttribute="centerX" secondItem="7YL-o9-gKo" secondAttribute="centerX" id="LpD-pt-zaR"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -471,27 +474,31 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="F2Y-li-zzD" firstAttribute="top" secondItem="xn7-MS-Mce" secondAttribute="bottom" constant="8" id="51l-7q-2Jn"/>
+                            <constraint firstItem="F2Y-li-zzD" firstAttribute="top" secondItem="xn7-MS-Mce" secondAttribute="bottom" constant="2" id="51l-7q-2Jn"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xfY-kA-TOO" secondAttribute="leading" id="B2P-il-5sZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XUY-Cz-Dbe" secondAttribute="trailing" id="BFw-dQ-Nx6"/>
-                            <constraint firstItem="XUY-Cz-Dbe" firstAttribute="top" secondItem="nXv-dr-GKd" secondAttribute="bottom" id="Cfd-Ja-RkL"/>
+                            <constraint firstItem="XUY-Cz-Dbe" firstAttribute="top" secondItem="nXv-dr-GKd" secondAttribute="bottom" constant="5" id="Cfd-Ja-RkL"/>
                             <constraint firstItem="xn7-MS-Mce" firstAttribute="trailing" secondItem="cVZ-FI-JuX" secondAttribute="trailingMargin" id="DEB-1r-Zpd"/>
                             <constraint firstItem="nXv-dr-GKd" firstAttribute="leading" secondItem="cVZ-FI-JuX" secondAttribute="leadingMargin" id="FQX-BH-5CM"/>
                             <constraint firstItem="xfY-kA-TOO" firstAttribute="top" secondItem="bYe-Qq-P8s" secondAttribute="bottom" constant="8" id="FQX-C1-EyX"/>
                             <constraint firstItem="nXv-dr-GKd" firstAttribute="trailing" secondItem="cVZ-FI-JuX" secondAttribute="trailingMargin" id="Uww-3b-mCE"/>
-                            <constraint firstItem="xn7-MS-Mce" firstAttribute="top" secondItem="XUY-Cz-Dbe" secondAttribute="bottom" constant="7" id="XpM-YN-Ipb"/>
+                            <constraint firstItem="xn7-MS-Mce" firstAttribute="top" secondItem="XUY-Cz-Dbe" secondAttribute="bottom" constant="8" id="XpM-YN-Ipb"/>
                             <constraint firstItem="xn7-MS-Mce" firstAttribute="leading" secondItem="cVZ-FI-JuX" secondAttribute="leadingMargin" id="YY3-cq-1nk"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XUY-Cz-Dbe" secondAttribute="leading" id="a6I-QL-Ixx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xfY-kA-TOO" secondAttribute="trailing" id="biZ-hb-ZeM"/>
                             <constraint firstItem="DDe-Bm-DQk" firstAttribute="top" secondItem="F2Y-li-zzD" secondAttribute="bottom" constant="8" id="cbW-lA-Ubc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="F2Y-li-zzD" secondAttribute="leading" id="esB-03-y20"/>
                             <constraint firstItem="nXv-dr-GKd" firstAttribute="top" secondItem="bYe-Qq-P8s" secondAttribute="bottom" constant="6" id="fc5-2P-6X5"/>
-                            <constraint firstItem="XUY-Cz-Dbe" firstAttribute="top" secondItem="xfY-kA-TOO" secondAttribute="bottom" constant="8" id="tWv-yH-fQh"/>
+                            <constraint firstItem="XUY-Cz-Dbe" firstAttribute="top" secondItem="xfY-kA-TOO" secondAttribute="bottom" constant="13" id="tWv-yH-fQh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F2Y-li-zzD" secondAttribute="trailing" id="u2s-1S-0ef"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Choices" id="Jor-Ao-WXB"/>
                     <connections>
+                        <outlet property="characherLimit" destination="iXR-vr-puV" id="YJD-oB-tdY"/>
+                        <outlet property="collectionView" destination="xn7-MS-Mce" id="L5N-ZG-ifk"/>
+                        <outlet property="hintButton" destination="Tjk-XX-m9s" id="pul-2g-27p"/>
+                        <outlet property="questionTextView" destination="RLi-bp-eSg" id="5YO-5z-lE8"/>
                         <outlet property="topInputView" destination="nXv-dr-GKd" id="avS-8J-RqZ"/>
                     </connections>
                 </viewController>
@@ -501,7 +508,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PollQues" width="48" height="48"/>
+        <image name="PollQues" width="24" height="24"/>
         <image name="Profile" width="48" height="48"/>
     </resources>
 </document>
