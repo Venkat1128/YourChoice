@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -396,6 +397,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="TWg-Mi-2Dl" id="rUf-RK-Mtu"/>
+                                    <outlet property="delegate" destination="TWg-Mi-2Dl" id="AkB-Fl-q0U"/>
+                                </connections>
                             </collectionView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Question (100 character limit)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfY-kA-TOO">
                                 <rect key="frame" x="16" y="72" width="288" height="80"/>
@@ -500,11 +505,96 @@
                         <outlet property="hintButton" destination="Tjk-XX-m9s" id="pul-2g-27p"/>
                         <outlet property="questionTextView" destination="RLi-bp-eSg" id="5YO-5z-lE8"/>
                         <outlet property="topInputView" destination="nXv-dr-GKd" id="avS-8J-RqZ"/>
+                        <segue destination="MmJ-uZ-uGd" kind="show" identifier="FullScreenImageSegue" id="2iU-2j-OiQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Auh-aV-RuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3058.125" y="499.64788732394368"/>
+        </scene>
+        <!--Photo-->
+        <scene sceneID="kQy-83-t9y">
+            <objects>
+                <viewController id="MmJ-uZ-uGd" customClass="FullScreenImageViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="81a-PS-i88"/>
+                        <viewControllerLayoutGuide type="bottom" id="imf-gx-MxY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQJ-R8-DKI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQI-2v-Jxc">
+                                <rect key="frame" x="-4" y="524" width="328" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="w9e-0N-r3S"/>
+                                    <barButtonItem title="Change photo" id="mgM-Oi-7Kj">
+                                        <connections>
+                                            <action selector="changePhoto:" destination="MmJ-uZ-uGd" id="W0U-4t-sVt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MqB-mm-oIU"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDm-Og-ggA">
+                                <rect key="frame" x="-4" y="64" width="328" height="460"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZDm-Og-ggA" firstAttribute="top" secondItem="81a-PS-i88" secondAttribute="bottom" id="6M0-3w-i5o"/>
+                            <constraint firstItem="ZDm-Og-ggA" firstAttribute="leading" secondItem="cQJ-R8-DKI" secondAttribute="leadingMargin" constant="-20" id="Hj1-YD-fH6"/>
+                            <constraint firstItem="imf-gx-MxY" firstAttribute="top" secondItem="pQI-2v-Jxc" secondAttribute="bottom" id="Rm8-dY-PRl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pQI-2v-Jxc" secondAttribute="trailing" constant="-20" id="VER-WE-dia"/>
+                            <constraint firstItem="pQI-2v-Jxc" firstAttribute="leading" secondItem="cQJ-R8-DKI" secondAttribute="leadingMargin" constant="-20" id="fPN-b8-hj2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZDm-Og-ggA" secondAttribute="trailing" constant="-20" id="gsb-H1-bFK"/>
+                            <constraint firstItem="pQI-2v-Jxc" firstAttribute="top" secondItem="ZDm-Og-ggA" secondAttribute="bottom" id="iNF-9F-jxO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pQI-2v-Jxc"/>
+                                <exclude reference="ZDm-Og-ggA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Rm8-dY-PRl"/>
+                                <exclude reference="iNF-9F-jxO"/>
+                                <exclude reference="VER-WE-dia"/>
+                                <exclude reference="fPN-b8-hj2"/>
+                                <exclude reference="Hj1-YD-fH6"/>
+                                <exclude reference="gsb-H1-bFK"/>
+                                <exclude reference="6M0-3w-i5o"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pQI-2v-Jxc"/>
+                                <include reference="ZDm-Og-ggA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Rm8-dY-PRl"/>
+                                <include reference="iNF-9F-jxO"/>
+                                <include reference="VER-WE-dia"/>
+                                <include reference="fPN-b8-hj2"/>
+                                <include reference="Hj1-YD-fH6"/>
+                                <include reference="gsb-H1-bFK"/>
+                                <include reference="6M0-3w-i5o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photo" id="FoX-vM-Ai6">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="F7F-nW-bZe">
+                            <connections>
+                                <action selector="deletePhoto:" destination="MmJ-uZ-uGd" id="DT0-2b-8Ig"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="ZDm-Og-ggA" id="Cy5-TB-rnq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5n-1W-2Yo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4031" y="499"/>
         </scene>
     </scenes>
     <resources>

@@ -8,7 +8,7 @@
 
 import UIKit
 //MARK:- AddChoicesViewController
-class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewControllerDeleage,UICollectionViewDelegate,UICollectionViewDataSource,UITextViewDelegate {
+class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewControllerDeleage,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextViewDelegate {
     
     @IBOutlet weak var hintButton: UIButton!
     //Intialization
@@ -44,14 +44,31 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.questionTextView.delegate = self
+        
+        // Initialise the poll pictures array with a nil image.
+        pollPictures.append(nil)
+        
+        questionTextView.delegate = self
+        questionTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
         self.configureUI()
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == FullScreenImageSegue {
+            let viewController = segue.destination as! YCImageUpdateViewController
+            let pollPicture = sender as! UIImage
+            viewController.image = pollPicture
+            viewController.delegate = self
+        }
     }
     func configureUI(){
         self.hintButton.contentMode = .center
