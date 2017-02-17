@@ -35,7 +35,7 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
     let PollPictureMax = 4
     let PollPictureMin = 2
     let QuestionCharacterLimit = 140
-    let AddPhoto = "Add Photo"
+    let AddPhoto = "+"
     let FullScreenImageSegue = "FullScreenImageSegue"
     let DefaultQuestionText = "Question (140 character limit)"
     
@@ -73,8 +73,8 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
     func configureUI(){
         self.hintButton.contentMode = .center
         self.hintButton.imageView?.contentMode = .center
-        self.topInputView.layer.borderColor = UIColor.gray.cgColor
-        self.topInputView.layer.borderWidth = 2
+        self.topInputView.layer.borderColor = UIColor.lightGray.cgColor
+        self.topInputView.layer.borderWidth = 1
         self.topInputView.layer.cornerRadius = 10
     }
     
@@ -190,6 +190,6 @@ extension AddChoicesViewController{
                 images.append(image)
             }
         }
-        //YCDataModel.addPoll(question, images: images)
+        YCDataModel.addPoll(question, images: images)
     }
 }

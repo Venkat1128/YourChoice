@@ -340,7 +340,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2Y-li-zzD">
                                 <rect key="frame" x="16" y="528" width="288" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Add Poll"/>
+                                <state key="normal" title="Add Choice"/>
                                 <connections>
                                     <action selector="AddChoicesAction:" destination="TWg-Mi-2Dl" eventType="touchUpInside" id="R2T-AR-qsi"/>
                                 </connections>
@@ -369,28 +369,39 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFE-xP-LoX">
-                                                    <rect key="frame" x="8" y="41" width="84" height="17"/>
+                                                    <rect key="frame" x="8" y="42" width="84" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8If-XA-UEW">
-                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
-                                                    <color key="backgroundColor" red="0.64313725489999995" green="0.67450980390000004" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.64313725489999995" green="0.67450980390000004" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.35400390625" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="TFE-xP-LoX" firstAttribute="centerX" secondItem="hCp-iy-bwz" secondAttribute="centerX" id="5mq-rE-WGC"/>
-                                            <constraint firstItem="8If-XA-UEW" firstAttribute="leading" secondItem="hCp-iy-bwz" secondAttribute="leadingMargin" id="6TL-j8-J8i"/>
-                                            <constraint firstItem="8If-XA-UEW" firstAttribute="top" secondItem="hCp-iy-bwz" secondAttribute="topMargin" id="6x6-Hf-4Ig"/>
+                                            <constraint firstItem="8If-XA-UEW" firstAttribute="leading" secondItem="hCp-iy-bwz" secondAttribute="leadingMargin" constant="-3" id="6TL-j8-J8i"/>
+                                            <constraint firstItem="8If-XA-UEW" firstAttribute="top" secondItem="hCp-iy-bwz" secondAttribute="topMargin" constant="-3" id="6x6-Hf-4Ig"/>
                                             <constraint firstItem="TFE-xP-LoX" firstAttribute="leading" secondItem="hCp-iy-bwz" secondAttribute="leadingMargin" id="GmZ-5n-Q5g"/>
-                                            <constraint firstItem="8If-XA-UEW" firstAttribute="bottom" secondItem="hCp-iy-bwz" secondAttribute="bottomMargin" id="Uqm-y5-dh1"/>
-                                            <constraint firstItem="8If-XA-UEW" firstAttribute="trailing" secondItem="hCp-iy-bwz" secondAttribute="trailingMargin" id="WkQ-8B-XIM"/>
+                                            <constraint firstItem="8If-XA-UEW" firstAttribute="bottom" secondItem="hCp-iy-bwz" secondAttribute="bottomMargin" constant="3" id="Uqm-y5-dh1"/>
+                                            <constraint firstItem="8If-XA-UEW" firstAttribute="trailing" secondItem="hCp-iy-bwz" secondAttribute="trailingMargin" constant="3" id="WkQ-8B-XIM"/>
                                             <constraint firstItem="TFE-xP-LoX" firstAttribute="trailing" secondItem="hCp-iy-bwz" secondAttribute="trailingMargin" id="uBK-oO-c2z"/>
                                             <constraint firstItem="TFE-xP-LoX" firstAttribute="centerY" secondItem="hCp-iy-bwz" secondAttribute="centerY" id="ubR-WL-A8K"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="imageView" destination="8If-XA-UEW" id="Y2q-M8-8oN"/>
                                             <outlet property="label" destination="TFE-xP-LoX" id="yld-kS-CLg"/>
@@ -430,22 +441,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RLi-bp-eSg">
-                                                <rect key="frame" x="0.0" y="0.0" width="268" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="90"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7YL-o9-gKo">
-                                                <rect key="frame" x="270" y="0.0" width="18" height="90"/>
+                                                <rect key="frame" x="288" y="0.0" width="0.0" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/140  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-vr-puV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="18" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-XX-m9s">
-                                                        <rect key="frame" x="0.0" y="66" width="18" height="24"/>
+                                                        <rect key="frame" x="0.0" y="66" width="0.0" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="Button" image="PollQues"/>
                                                     </button>
@@ -515,7 +526,7 @@
         <!--Photo-->
         <scene sceneID="kQy-83-t9y">
             <objects>
-                <viewController id="MmJ-uZ-uGd" customClass="FullScreenImageViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MmJ-uZ-uGd" customClass="YCImageUpdateViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="81a-PS-i88"/>
                         <viewControllerLayoutGuide type="bottom" id="imf-gx-MxY"/>
