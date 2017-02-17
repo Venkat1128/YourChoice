@@ -557,12 +557,12 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Rm8-dY-PRl"/>
-                                <exclude reference="iNF-9F-jxO"/>
-                                <exclude reference="VER-WE-dia"/>
-                                <exclude reference="fPN-b8-hj2"/>
+                                <exclude reference="6M0-3w-i5o"/>
                                 <exclude reference="Hj1-YD-fH6"/>
                                 <exclude reference="gsb-H1-bFK"/>
-                                <exclude reference="6M0-3w-i5o"/>
+                                <exclude reference="VER-WE-dia"/>
+                                <exclude reference="fPN-b8-hj2"/>
+                                <exclude reference="iNF-9F-jxO"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -572,12 +572,12 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="Rm8-dY-PRl"/>
-                                <include reference="iNF-9F-jxO"/>
-                                <include reference="VER-WE-dia"/>
-                                <include reference="fPN-b8-hj2"/>
+                                <include reference="6M0-3w-i5o"/>
                                 <include reference="Hj1-YD-fH6"/>
                                 <include reference="gsb-H1-bFK"/>
-                                <include reference="6M0-3w-i5o"/>
+                                <include reference="VER-WE-dia"/>
+                                <include reference="fPN-b8-hj2"/>
+                                <include reference="iNF-9F-jxO"/>
                             </mask>
                         </variation>
                     </view>

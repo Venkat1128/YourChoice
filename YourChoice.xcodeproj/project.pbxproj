@@ -27,6 +27,8 @@
 		824684811E56DCF90006E408 /* AddChoicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684801E56DCF90006E408 /* AddChoicesViewController.swift */; };
 		824684831E56DD8E0006E408 /* AddChoicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684821E56DD8E0006E408 /* AddChoicesCollectionViewCell.swift */; };
 		824684851E57102D0006E408 /* YCImageUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684841E57102D0006E408 /* YCImageUpdateViewController.swift */; };
+		824684871E5747840006E408 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684861E5747840006E408 /* Choice.swift */; };
+		824684891E5747F40006E408 /* ChoiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684881E5747F40006E408 /* ChoiceOptions.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -82,6 +84,8 @@
 		824684801E56DCF90006E408 /* AddChoicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChoicesViewController.swift; sourceTree = "<group>"; };
 		824684821E56DD8E0006E408 /* AddChoicesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChoicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		824684841E57102D0006E408 /* YCImageUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCImageUpdateViewController.swift; sourceTree = "<group>"; };
+		824684861E5747840006E408 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		824684881E5747F40006E408 /* ChoiceOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceOptions.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,8 @@
 				824684701E5478F40006E408 /* Photo.swift */,
 				824684761E547BD50006E408 /* ImageCache.swift */,
 				824684781E547D200006E408 /* CoreDataStackManager.swift */,
+				824684861E5747840006E408 /* Choice.swift */,
+				824684881E5747F40006E408 /* ChoiceOptions.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 			files = (
 				8246847B1E54B4EB0006E408 /* YCRegistationViewController.swift in Sources */,
 				824684581E534B4C0006E408 /* YCUtils.swift in Sources */,
+				824684871E5747840006E408 /* Choice.swift in Sources */,
 				824684721E5478F40006E408 /* Photo.swift in Sources */,
 				82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */,
 				8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */,
@@ -573,6 +580,7 @@
 				8246846D1E5475180006E408 /* YourChoice.xcdatamodeld in Sources */,
 				82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */,
 				824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */,
+				824684891E5747F40006E408 /* ChoiceOptions.swift in Sources */,
 				824684811E56DCF90006E408 /* AddChoicesViewController.swift in Sources */,
 				8246847D1E54B6370006E408 /* YCImagePickerViewController.swift in Sources */,
 				824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */,

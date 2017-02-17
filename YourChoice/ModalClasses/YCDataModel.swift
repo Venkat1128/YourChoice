@@ -245,9 +245,42 @@ extension YCDataModel{
             }
         }
     }
+    
+    class func addPoll(_ question: String, images: [UIImage]) {
+        let pollRef = fireDatabase.child(FirebaseConstants.Polls).childByAutoId()
+        let pollId = pollRef.key
+        
+        // Store the images with core data.
+        var pollOptions = [ChoiceOptions]()
+        var photos = [Photo]()
+        for (index, image) in images.enumerated() {
+            // Add the full image to the list of photos.
+            let pollPicture = createPollPicturePhoto(pollId, image: image, index: index)
+            photos.append(pollPicture)
+            
+            // Create a thumbnail image and add it to the photos list.
+            let pollPictureThumbnail = createPollPictureThumbnailPhoto(pollId, image: image, index: index)
+            photos.append(pollPictureThumbnail)
+            
+            // Append a new poll option using the image and thumbnail.
+            let pollOption = ChoiceOptions(pollPictureId: pollPicture.id, pollPictureThumbnailId: pollPictureThumbnail.id)
+            pollOptions.append(pollOption)
+        }
+        saveContext()
+        
+        // Create and save the poll.
+        let poll = Choice(question: question, userId: YCDataModel.getUserId())
+        if let profilePictureId = fetchUser()?.profilePictureId {
+            poll.profilePictureId = profilePictureId
+        }
+        poll.pollOptions = pollOptions
+        
+        pollRef.setValue(poll.getPollData())
+    }
 }
 //MARK:- Convience Methods
 extension YCDataModel{
+    
     fileprivate class func createProfilePicturePhoto(_ id: String, image: UIImage?) -> Photo? {
         guard let profilePictureImage = image else {
             return nil
@@ -258,6 +291,32 @@ extension YCDataModel{
         let profilePictureId = id + ImageConstants.ProfilePictureJPEG
         let photo = Photo(id: profilePictureId, pollId: nil, uploaded: false, isThumbnail: true, image: thumbnail, context: context)
         saveContext()
+        return photo
+    }
+    
+    fileprivate class func createPollPicturePhoto(_ pollId: String, image: UIImage, index: Int) -> Photo {
+        let id = pollId + String(format: ImageConstants.PollPictureJPEG, index)
+        return Photo(id: id, pollId: pollId, uploaded: false, isThumbnail: false, image: image, context: context)
+    }
+    
+    fileprivate class func createPollPictureThumbnailPhoto(_ pollId: String, image: UIImage, index: Int) -> Photo {
+        let targetSize = CGSize(width: ImageConstants.PollPictureThumbnailWidth, height: ImageConstants.PollPictureThumbnailHeight)
+        let imageThumbnail = YCUtils.resizeImage(image, targetSize: targetSize)
+        let id = pollId + String(format: ImageConstants.PollPictureThumbnailJPEG, index)
+        return Photo(id: id, pollId: pollId, uploaded: false, isThumbnail: true, image: imageThumbnail, context: context)
+    }
+    
+    fileprivate class func getProfilePictureId() -> String? {
+        let user = fetchUser()!
+        return user.profilePictureId
+    }
+    
+    fileprivate class func getProfilePicture() -> Photo? {
+        var photo: Photo?
+        if let profilePictureId = getProfilePictureId() {
+            photo = fetchPhotoById(profilePictureId)
+        }
+        
         return photo
     }
 }

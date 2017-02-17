@@ -105,5 +105,16 @@ class YCUtils{
         UIGraphicsEndImageContext()
         return newImage!
     }
+    static func getTimeIntervalSince1970() -> Double {
+        let date = Date()
+        return date.timeIntervalSince1970
+    }
+    
+    static func formatDate(_ timeIntervalSince1970: Double) -> String {
+        let date = Date(timeIntervalSince1970: timeIntervalSince1970)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter.string(from: date)
+    }
 
 }
