@@ -49,6 +49,7 @@ class YCQuestionTableViewController: UITableViewController {
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "questionIdentifier", for: indexPath)
      cell.textLabel?.text = questions.object(at: indexPath.row) as? String
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 10)
      // Configure the cell...
      
      return cell

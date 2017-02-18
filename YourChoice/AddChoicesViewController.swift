@@ -29,11 +29,11 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
     var pollPictures = [UIImage?]()
     var popup :YCQuestionTableViewController!
     
-    
+    //MARK:- IB Actions for diffrent methods
     @IBAction func hintButtonAction(_ sender: Any) {
         popup = (self.storyboard!.instantiateViewController(withIdentifier: "PopupViewController") as? YCQuestionTableViewController)!
         popup.modalPresentationStyle = .popover
-        popup.preferredContentSize = CGSize(width: 150, height: 150)
+        popup.preferredContentSize = CGSize(width: 180, height: 100)
         let popoverMenuViewController = popup.popoverPresentationController
         popoverMenuViewController?.permittedArrowDirections = .up
         popoverMenuViewController?.delegate = self
