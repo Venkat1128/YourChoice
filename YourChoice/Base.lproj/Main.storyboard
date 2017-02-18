@@ -133,54 +133,6 @@
             </objects>
             <point key="canvasLocation" x="22" y="316"/>
         </scene>
-        <!--Your Choices-->
-        <scene sceneID="dOV-hu-xXb">
-            <objects>
-                <viewController id="4kA-xR-w05" customClass="YourChoiceViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="h3a-6R-Wck"/>
-                        <viewControllerLayoutGuide type="bottom" id="JuX-gt-xAz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ibm-e9-i3u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Your Choices" id="wCK-VG-K7L">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="St1-Jy-z1f">
-                            <connections>
-                                <action selector="logoutAction:" destination="4kA-xR-w05" id="H7q-zK-cDq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JlF-8u-flU">
-                            <connections>
-                                <segue destination="TWg-Mi-2Dl" kind="show" identifier="AddPollSegue" id="iBP-pa-FSv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pTp-MU-wfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1969" y="958"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pZq-Fo-B9d">
-            <objects>
-                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hhF-K1-wSm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2g-BS-dhl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4kA-xR-w05" kind="relationship" relationship="rootViewController" id="W7y-ze-04p"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pj1-vh-aH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1057" y="959"/>
-        </scene>
         <!--Question Table View Controller-->
         <scene sceneID="OLz-3u-Qn8">
             <objects>
@@ -216,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cop-19-uf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181.25" y="1627.8169014084508"/>
+            <point key="canvasLocation" x="4763" y="499"/>
         </scene>
         <!--Register-->
         <scene sceneID="feb-aa-WD0">
@@ -647,9 +599,178 @@
             </objects>
             <point key="canvasLocation" x="4031" y="499"/>
         </scene>
+        <!--Your Choice-->
+        <scene sceneID="fW7-Sf-h2d">
+            <objects>
+                <viewController storyboardIdentifier="PollListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y5B-Te-ubD" customClass="YourChoiceViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WrN-I2-y6C"/>
+                        <viewControllerLayoutGuide type="bottom" id="5OU-Dx-xns"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sHT-ld-Q56">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4om-s0-bjU">
+                                <rect key="frame" x="-4" y="108" width="328" height="460"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PollTableViewCell" rowHeight="130" id="PZi-yh-lJv" customClass="PollTableViewCell" customModule="YourChoice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="328" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PZi-yh-lJv" id="Rv5-18-Bzq">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much wood could a woodchuck chuck if a woodchuck could chuck wood?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKL-v5-amj">
+                                                    <rect key="frame" x="59" y="8" width="261" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="73M-3t-0Ik"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M17-F9-60f">
+                                                    <rect key="frame" x="59" y="56" width="284" height="65"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PollPicture" translatesAutoresizingMaskIntoConstraints="NO" id="bm4-px-NMm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="65" id="6iq-EI-c6E"/>
+                                                                <constraint firstAttribute="width" constant="65" id="bOs-jb-TGf"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PollPicture" translatesAutoresizingMaskIntoConstraints="NO" id="toR-sY-4IB">
+                                                            <rect key="frame" x="73" y="0.0" width="65" height="65"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="65" id="5J3-er-g7E"/>
+                                                                <constraint firstAttribute="width" constant="65" id="bRO-Xq-jZ3"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PollPicture" translatesAutoresizingMaskIntoConstraints="NO" id="NEw-sa-wEM">
+                                                            <rect key="frame" x="146" y="0.0" width="65" height="65"/>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="65" id="Auo-Sw-02b"/>
+                                                                <constraint firstAttribute="width" constant="65" id="lxg-vr-iC0"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PollPicture" translatesAutoresizingMaskIntoConstraints="NO" id="cwV-8A-6UW">
+                                                            <rect key="frame" x="219" y="0.0" width="65" height="65"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="65" id="2Y4-Tt-6jU"/>
+                                                                <constraint firstAttribute="height" constant="65" id="QjL-fn-lVT"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="VpX-1J-zT1">
+                                                    <rect key="frame" x="16" y="8" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="gHJ-7B-08G"/>
+                                                        <constraint firstAttribute="height" constant="35" id="oWv-3H-tIA"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PKL-v5-amj" secondAttribute="trailing" id="B0g-bO-CcD"/>
+                                                <constraint firstItem="M17-F9-60f" firstAttribute="top" secondItem="PKL-v5-amj" secondAttribute="bottom" constant="13" id="E5L-PY-bJx"/>
+                                                <constraint firstItem="PKL-v5-amj" firstAttribute="leading" secondItem="VpX-1J-zT1" secondAttribute="trailing" constant="8" id="HgA-bI-YRR"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="VpX-1J-zT1" secondAttribute="leading" constant="-8" id="ULI-70-inG"/>
+                                                <constraint firstAttribute="topMargin" secondItem="VpX-1J-zT1" secondAttribute="top" id="epc-PL-jH1"/>
+                                                <constraint firstItem="M17-F9-60f" firstAttribute="leading" secondItem="VpX-1J-zT1" secondAttribute="trailing" constant="8" id="heV-Ew-ngj"/>
+                                                <constraint firstAttribute="topMargin" secondItem="PKL-v5-amj" secondAttribute="top" id="k9U-R8-zyN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="pollImageView1" destination="bm4-px-NMm" id="pWL-5H-RGl"/>
+                                            <outlet property="pollImageView2" destination="toR-sY-4IB" id="Qu5-MP-Uxr"/>
+                                            <outlet property="pollImageView3" destination="NEw-sa-wEM" id="wdq-cS-0Vz"/>
+                                            <outlet property="pollImageView4" destination="cwV-8A-6UW" id="HtE-cT-yI8"/>
+                                            <outlet property="pollLabel" destination="PKL-v5-amj" id="aCa-iB-CK6"/>
+                                            <outlet property="profileImageView" destination="VpX-1J-zT1" id="mmi-CS-0YS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No polls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5D-li-De2">
+                                <rect key="frame" x="16" y="273.5" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4ae-td-Vm0">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NtJ-vv-wiR">
+                                <rect key="frame" x="74.5" y="72" width="171" height="29"/>
+                                <segments>
+                                    <segment title="My Choices"/>
+                                    <segment title="All Choices"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4om-s0-bjU" firstAttribute="top" secondItem="NtJ-vv-wiR" secondAttribute="bottom" constant="8" id="1nk-4B-Mct"/>
+                            <constraint firstItem="f5D-li-De2" firstAttribute="centerX" secondItem="sHT-ld-Q56" secondAttribute="centerX" id="50l-30-Y7n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f5D-li-De2" secondAttribute="trailing" id="AJr-Ri-Eei"/>
+                            <constraint firstItem="5OU-Dx-xns" firstAttribute="top" secondItem="4om-s0-bjU" secondAttribute="bottom" id="GKO-Mz-aBl"/>
+                            <constraint firstItem="4ae-td-Vm0" firstAttribute="centerX" secondItem="sHT-ld-Q56" secondAttribute="centerX" id="KOJ-cb-5ie"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="f5D-li-De2" secondAttribute="leading" id="RQj-Fy-HJE"/>
+                            <constraint firstItem="NtJ-vv-wiR" firstAttribute="centerX" secondItem="sHT-ld-Q56" secondAttribute="centerX" id="diE-f0-XhK"/>
+                            <constraint firstItem="f5D-li-De2" firstAttribute="centerY" secondItem="sHT-ld-Q56" secondAttribute="centerY" id="e1t-lX-z1p"/>
+                            <constraint firstItem="4ae-td-Vm0" firstAttribute="centerY" secondItem="sHT-ld-Q56" secondAttribute="centerY" id="fYX-3s-RZx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4om-s0-bjU" secondAttribute="trailing" constant="-20" id="nGK-d0-uRI"/>
+                            <constraint firstItem="NtJ-vv-wiR" firstAttribute="top" secondItem="WrN-I2-y6C" secondAttribute="bottom" constant="8" id="sFp-fP-Xjh"/>
+                            <constraint firstItem="4om-s0-bjU" firstAttribute="leading" secondItem="sHT-ld-Q56" secondAttribute="leadingMargin" constant="-20" id="sbu-hK-ZMe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Choice" id="sLK-0f-6fD">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="UKN-Lq-ez7">
+                            <connections>
+                                <action selector="logoutAction:" destination="y5B-Te-ubD" id="uPk-TT-UTG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7QX-UW-tny">
+                            <connections>
+                                <segue destination="TWg-Mi-2Dl" kind="show" identifier="AddPollSegue" id="6kv-08-D8o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWx-7D-MKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910.625" y="893.66197183098598"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z40-dp-Tj2">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="US0-sf-kuV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfF-B1-aV9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y5B-Te-ubD" kind="relationship" relationship="rootViewController" id="Pv2-Mp-f7c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBR-11-HxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1149" y="894"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="PollPicture" width="16" height="16"/>
         <image name="PollQues" width="24" height="24"/>
         <image name="Profile" width="48" height="48"/>
+        <image name="ProfilePicture" width="16" height="16"/>
     </resources>
 </document>
