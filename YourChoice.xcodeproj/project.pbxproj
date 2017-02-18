@@ -29,6 +29,7 @@
 		824684851E57102D0006E408 /* YCImageUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684841E57102D0006E408 /* YCImageUpdateViewController.swift */; };
 		824684871E5747840006E408 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684861E5747840006E408 /* Choice.swift */; };
 		824684891E5747F40006E408 /* ChoiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684881E5747F40006E408 /* ChoiceOptions.swift */; };
+		8246848B1E57610C0006E408 /* YCQuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246848A1E57610C0006E408 /* YCQuestionTableViewController.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 		824684841E57102D0006E408 /* YCImageUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCImageUpdateViewController.swift; sourceTree = "<group>"; };
 		824684861E5747840006E408 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		824684881E5747F40006E408 /* ChoiceOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceOptions.swift; sourceTree = "<group>"; };
+		8246848A1E57610C0006E408 /* YCQuestionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCQuestionTableViewController.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				8246847E1E55EBC30006E408 /* YourChoiceViewController.swift */,
 				824684801E56DCF90006E408 /* AddChoicesViewController.swift */,
 				824684841E57102D0006E408 /* YCImageUpdateViewController.swift */,
+				8246848A1E57610C0006E408 /* YCQuestionTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				8246847D1E54B6370006E408 /* YCImagePickerViewController.swift in Sources */,
 				824684551E5346DD0006E408 /* YCBaseViewController.swift in Sources */,
 				8246847F1E55EBC30006E408 /* YourChoiceViewController.swift in Sources */,
+				8246848B1E57610C0006E408 /* YCQuestionTableViewController.swift in Sources */,
 				8246846F1E5477110006E408 /* User.swift in Sources */,
 				824684641E546BC30006E408 /* YCDataModel.swift in Sources */,
 				824684611E5362BF0006E408 /* ViewControllerExtensions.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 //MARK:- AddChoicesViewController
-class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewControllerDeleage,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextViewDelegate {
+class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewControllerDeleage,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextViewDelegate,YCQuestionTableViewControllerDelegate,UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var hintButton: UIButton!
     //Intialization
@@ -16,6 +16,40 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var characherLimit: UILabel!
+    
+    
+    let PollPictureMax = 4
+    let PollPictureMin = 2
+    let QuestionCharacterLimit = 140
+    let AddPhoto = "+"
+    let FullScreenImageSegue = "FullScreenImageSegue"
+    let DefaultQuestionText = "Question (140 character limit)"
+    
+    var selectedPictureIndex = 0
+    var pollPictures = [UIImage?]()
+    var popup :YCQuestionTableViewController!
+    
+    
+    @IBAction func hintButtonAction(_ sender: Any) {
+        popup = (self.storyboard!.instantiateViewController(withIdentifier: "PopupViewController") as? YCQuestionTableViewController)!
+        popup.modalPresentationStyle = .popover
+        popup.preferredContentSize = CGSize(width: 150, height: 150)
+        let popoverMenuViewController = popup.popoverPresentationController
+        popoverMenuViewController?.permittedArrowDirections = .up
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = sender as! UIButton
+        popoverMenuViewController?.sourceRect = CGRect(
+            x: (sender as AnyObject).frame.size.width/2,
+            y: (sender as AnyObject).frame.size.height/2,
+            width: 1,
+            height: 1)
+        popup.delegate = self
+        
+        present(
+            popup,
+            animated: true,
+            completion: nil)
+    }
     @IBAction func AddChoicesAction(_ sender: Any) {
         // Check if the question has been completed.
         guard let question = questionTextView.text, question.characters.count > 0 else {
@@ -32,15 +66,6 @@ class AddChoicesViewController: YCImagePickerViewController,YCImageUpdateViewCon
         addNewPoll(question)
         _ = navigationController?.popViewController(animated: true)
     }
-    let PollPictureMax = 4
-    let PollPictureMin = 2
-    let QuestionCharacterLimit = 140
-    let AddPhoto = "+"
-    let FullScreenImageSegue = "FullScreenImageSegue"
-    let DefaultQuestionText = "Question (140 character limit)"
-    
-    var selectedPictureIndex = 0
-    var pollPictures = [UIImage?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,5 +216,15 @@ extension AddChoicesViewController{
             }
         }
         YCDataModel.addPoll(question, images: images)
+    }
+}
+extension AddChoicesViewController{
+    func selectedQuestion(question: String) {
+        self.questionTextView.text = question
+        dismiss(animated: true, completion: nil)
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
     }
 }

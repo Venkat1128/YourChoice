@@ -181,6 +181,43 @@
             </objects>
             <point key="canvasLocation" x="1057" y="959"/>
         </scene>
+        <!--Question Table View Controller-->
+        <scene sceneID="OLz-3u-Qn8">
+            <objects>
+                <tableViewController storyboardIdentifier="PopupViewController" id="o1I-xk-roI" customClass="YCQuestionTableViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lAr-Db-fL7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionIdentifier" id="4bv-nh-fDu">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4bv-nh-fDu" id="7VX-8W-zqZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pic-bq-oT7">
+                                            <rect key="frame" x="8" y="11" width="304" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o1I-xk-roI" id="k7A-Gm-Duu"/>
+                            <outlet property="delegate" destination="o1I-xk-roI" id="CAo-WF-W1s"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cop-19-uf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1181.25" y="1627.8169014084508"/>
+        </scene>
         <!--Register-->
         <scene sceneID="feb-aa-WD0">
             <objects>
@@ -459,6 +496,9 @@
                                                         <rect key="frame" x="0.0" y="66" width="0.0" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="Button" image="PollQues"/>
+                                                        <connections>
+                                                            <action selector="hintButtonAction:" destination="TWg-Mi-2Dl" eventType="touchUpInside" id="jKR-6G-Aa6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
