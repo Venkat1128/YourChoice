@@ -142,6 +142,7 @@ extension YCDataModel{
             defaultCenter.post(name: Notification.Name(rawValue: NotificationNames.CreateUserCompleted), object: nil, userInfo: userInfo)
         }
     }
+    
 }
 //MARK:- Core Data
 extension YCDataModel{
@@ -178,6 +179,24 @@ extension YCDataModel{
         
         return photos
     }
+    fileprivate class func fetchLocalOnlyPhotos() -> [Photo]? {
+        var predicate: NSPredicate
+        if let profilePictureId = getProfilePictureId() {
+            predicate = NSPredicate(format: "(id != %@) AND (uploaded == %@)", profilePictureId, false as CVarArg)
+        } else {
+            predicate = NSPredicate(format: "uploaded == %@", false as CVarArg)
+        }
+        
+        let photos = fetchPhotos(predicate)
+        
+        return photos
+    }
+    fileprivate class func fetchPhotosByPollId(_ pollId: String, isThumbnail: Bool) -> [Photo]? {
+        let predicate = NSPredicate(format: "(pollId == %@) AND (isThumbnail == %@)", pollId, isThumbnail as CVarArg)
+        let photos = fetchPhotos(predicate)
+        
+        return photos
+    }
 }
 //MARK: - Firebase storage
 extension YCDataModel{
@@ -209,7 +228,49 @@ extension YCDataModel{
             }
         }
     }
-    
+    class func getPollPictures(_ poll: Choice, isThumbnail: Bool, rowIndex: Int?) -> [UIImage?] {
+        var images = [UIImage?]()
+        let photos = fetchPhotosByPollId(poll.id!, isThumbnail: isThumbnail)
+        
+        for pollOption in poll.pollOptions {
+            var hasPhoto = false
+            if (photos?.count)! > 0 {
+                for photo in photos! {
+                    // Add images to the array if they are stored locally.
+                    let photoId = isThumbnail ? pollOption.pollPictureThumbnailId : pollOption.pollPictureId
+                    if photoId == photo.id, let image = photo.image {
+                        images.append(image)
+                        hasPhoto = true
+                        break
+                    }
+                }
+            }
+            
+            if !hasPhoto {
+                // If the photo is not saved locally then download it.
+                images.append(nil)
+                let id = isThumbnail ? pollOption.pollPictureThumbnailId : pollOption.pollPictureId
+                downloadPollPicture(id, pollId: poll.id!, isThumbnail: isThumbnail, rowIndex: rowIndex)
+            }
+        }
+        
+        return images
+    }
+    fileprivate class func downloadPollPicture(_ id: String, pollId: String, isThumbnail: Bool, rowIndex: Int?) {
+        let pollPicturesRef = fireStorage.child(FirebaseConstants.BucketPollPictures).child(id)
+        pollPicturesRef.data(withMaxSize: 1 * 8192 * 8192) { data, error in
+            var userInfo: [String: AnyObject]?
+            if error == nil {
+                let image = UIImage(data: data!)
+                let photo = Photo(id: id, pollId: pollId, uploaded: true, isThumbnail: isThumbnail, image: image, context: context)
+                saveContext()
+                
+                userInfo = [NotificationData.Photo: photo, NotificationData.RowIndex: rowIndex! as AnyObject] as [String:AnyObject]
+            }
+            
+            defaultCenter.post(name: Notification.Name(rawValue: NotificationNames.PhotoDownloadCompleted), object: nil, userInfo: userInfo)
+        }
+    }
     fileprivate class func uploadProfilePicture(_ userId: String, photo: Photo?) {
         guard let profilePicturePhoto = photo else {
             return
@@ -230,6 +291,32 @@ extension YCDataModel{
         let users = fireDatabase.child(FirebaseConstants.Users).child(uid)
         users.updateChildValues(userDetails)
     }
+    fileprivate class func uploadLocalOnlyPhotos() {
+        // Upload the profile picture if it is only stored locally.
+        if let profilePicture = getProfilePicture(), !profilePicture.uploaded {
+            uploadProfilePicture(getUserId(), photo: profilePicture)
+        }
+        
+        // Uploaded poll pictures if they are only stored locally.
+        if let photos = fetchLocalOnlyPhotos(), photos.count > 0 {
+            uploadPollPictures(photos)
+        }
+    }
+    fileprivate class func uploadPollPictures(_ photos: [Photo]) {
+        let pollPicturesRef = fireStorage.child(FirebaseConstants.BucketPollPictures)
+        
+        for photo in photos {
+            let file = URL(fileURLWithPath: photo.path!)
+            let pollPictureRef = pollPicturesRef.child(photo.id)
+            pollPictureRef.putFile(file, metadata: nil) { metadata, error in
+                if error == nil {
+                    photo.uploaded = true
+                    saveContext()
+                }
+            }
+        }
+    }
+
 }
 // MARK: - Firebase database
 extension YCDataModel{
@@ -245,7 +332,6 @@ extension YCDataModel{
             }
         }
     }
-    
     class func addPoll(_ question: String, images: [UIImage]) {
         let pollRef = fireDatabase.child(FirebaseConstants.Polls).childByAutoId()
         let pollId = pollRef.key
@@ -276,6 +362,49 @@ extension YCDataModel{
         poll.pollOptions = pollOptions
         
         pollRef.setValue(poll.getPollData())
+    }
+    
+    class func addMyPollsListObserver() {
+        removePollListObserver()
+        let myPolls = fireDatabase.child(FirebaseConstants.Polls)
+        let myPollsQuery = myPolls.queryOrdered(byChild: FirebaseConstants.UserId).queryEqual(toValue: getUserId())
+        observePollsList(myPollsQuery)
+    }
+    
+    class func addAllPollsListObserver() {
+        removePollListObserver()
+        let allPolls = fireDatabase.child(FirebaseConstants.Polls)
+        observePollsList(allPolls)
+    }
+    class func removePollListObserver() {
+        let polls = fireDatabase.child(FirebaseConstants.Polls)
+        polls.removeAllObservers()
+    }
+    
+    class func observePollsList(_ query: FIRDatabaseQuery) {
+        query.observe(.value, with: { snapshot in
+            var polls = [Choice]()
+            for snapshotItem in snapshot.children.allObjects.reversed() {
+                let poll = Choice(snapshot: snapshotItem as! FIRDataSnapshot)
+                polls.append(poll)
+            }
+            
+            let userInfo = [NotificationData.Polls: polls]
+            defaultCenter.post(name: Notification.Name(rawValue: NotificationNames.GetPollsCompleted), object: nil, userInfo: userInfo)
+        })
+    }
+    class func addConnectionStateObserver() {
+        let connectedRef = FIRDatabase.database().reference(withPath: FirebaseConstants.InfoConnected)
+        connectedRef.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool, connected {
+                uploadLocalOnlyPhotos()
+            }
+        })
+    }
+    
+    class func removeConnectionStateObserver() {
+        let connectedRef = FIRDatabase.database().reference(withPath: FirebaseConstants.InfoConnected)
+        connectedRef.removeAllObservers()
     }
 }
 //MARK:- Convience Methods

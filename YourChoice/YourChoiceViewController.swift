@@ -8,32 +8,173 @@
 
 import UIKit
 
-class YourChoiceViewController: UIViewController {
+class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    let SegmentedControlIndexKey = "SegmentedControlIndex"
+    
+    let userDefaults = UserDefaults.standard
+    let defaultCenter = NotificationCenter.default
+    var polls = [Choice]()
+    var pollsType = PollsType.myPolls
+    var storedOffsets = [Int: CGFloat]()
+    // MARK: - Interface builder outlets and actions.
+    
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableViewChoice: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func segmentedControlAction(_ sender: Any) {
+        addObserverForSegmentedContol(segmentedControl.selectedSegmentIndex)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableViewChoice.delegate = self
+        tableViewChoice.dataSource = self
+        updateTableViewState(TableViewState.loading)
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObservers()
+    }
     @IBAction func logoutAction(_ sender: Any) {
         YCDataModel.signOut()
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return polls.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let poll = polls[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: YCMainTableViewCell.Identifier, for: indexPath) as! YCMainTableViewCell
+        configureCell(cell, poll: poll, rowIndex: indexPath.row)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let tableViewCell = cell as? YCMainTableViewCell else { return }
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let tableViewCell = cell as? YCMainTableViewCell else { return }
+        
+        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+    }
 
+    func configureCell(_ cell: YCMainTableViewCell, poll: Choice, rowIndex: Int) {
+        cell.questionLabel.text = poll.question
+        
+        let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
+        let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
+        
+        cell.profileImageView.image = profilePicture
+        /*let pollImageViews = cell.getPollImageViews()
+        for (index, pollImageView) in pollImageViews.enumerated() {
+            // Check if there is an image for the current poll image view.
+            let hasImage = index < pollPictures.count
+            pollImageView.isHidden = !hasImage
+            if hasImage {
+                let pollPicture = pollPictures[index]
+                pollImageView.image = pollPicture != nil ? pollPicture! : UIImage(named: "PollPicture")!
+            }
+        }*/
+    }
+}
+ // MARK: - Initialisation methods.
+extension YourChoiceViewController{
+    
+    func addObservers() {
+        let segmentedControlIndex = userDefaults.integer(forKey: SegmentedControlIndexKey)
+        segmentedControl.selectedSegmentIndex = segmentedControlIndex
+        addObserverForSegmentedContol(segmentedControlIndex)
+        YCDataModel.addConnectionStateObserver()
+        defaultCenter.addObserver(self, selector: #selector(getPollsCompleted(_:)), name: NSNotification.Name(rawValue: NotificationNames.GetPollsCompleted), object: nil)
+        defaultCenter.addObserver(self, selector: #selector(photoDownloadCompleted(_:)), name: NSNotification.Name(rawValue: NotificationNames.PhotoDownloadCompleted), object: nil)
+    }
+    
+    func removeObservers() {
+        YCDataModel.removePollListObserver()
+        YCDataModel.removeConnectionStateObserver()
+        defaultCenter.removeObserver(self, name: NSNotification.Name(rawValue: NotificationNames.GetPollsCompleted), object: nil)
+        defaultCenter.removeObserver(self, name: NSNotification.Name(rawValue: NotificationNames.PhotoDownloadCompleted), object: nil)
+    }
+}
+// MARK: - REST response methods.
+extension YourChoiceViewController{
+    
+    func getPollsCompleted(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else {
+            print(Error.UserInfoNoData)
+            return
+        }
+        
+        polls.removeAll()
+        polls = userInfo[NotificationData.Polls] as! [Choice]
+        tableViewChoice.reloadData()
+        updateTableViewState(polls.count > 0 ? TableViewState.populated : TableViewState.empty)
+    }
+    
+    func photoDownloadCompleted(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else {
+            print(Error.UserInfoNoData)
+            return
+        }
+        
+        let rowIndex = userInfo[NotificationData.RowIndex] as! Int
+        let indexPath = IndexPath(row: rowIndex, section: 0)
+        tableViewChoice.reloadRows(at: [indexPath], with: .none)
+    }
+
+}
+// MARK: - Convenience methods.
+extension YourChoiceViewController{
+    
+    func updateTableViewState(_ tableViewState: TableViewState) {
+        emptyLabel.isHidden = TableViewState.empty != tableViewState
+        tableViewActivityIndicator.isHidden = TableViewState.loading != tableViewState
+        TableViewState.loading == tableViewState ? tableViewActivityIndicator.startAnimating() : tableViewActivityIndicator.stopAnimating()
+    }
+    
+    func addObserverForSegmentedContol(_ index: Int) {
+        userDefaults.set(index, forKey: SegmentedControlIndexKey)
+        switch index {
+        case PollsType.myPolls.rawValue:
+            YCDataModel.addMyPollsListObserver()
+        default:
+            YCDataModel.addAllPollsListObserver()
+        }
+    }
+}
+//MARK:- Tableview delegate and datasource
+extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        
+        return polls[0].pollOptions.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell",
+                                                      for: indexPath)
+        //cell.backgroundColor = polls[collectionView.tag][indexPath.item]
+        
+        return cell
+    }
 }

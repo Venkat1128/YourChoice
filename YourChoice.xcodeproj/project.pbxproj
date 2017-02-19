@@ -30,6 +30,8 @@
 		824684871E5747840006E408 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684861E5747840006E408 /* Choice.swift */; };
 		824684891E5747F40006E408 /* ChoiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684881E5747F40006E408 /* ChoiceOptions.swift */; };
 		8246848B1E57610C0006E408 /* YCQuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246848A1E57610C0006E408 /* YCQuestionTableViewController.swift */; };
+		824684911E5A194F0006E408 /* YCMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684901E5A194F0006E408 /* YCMainTableViewCell.swift */; };
+		824684931E5A1B610006E408 /* YCEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824684921E5A1B610006E408 /* YCEnum.swift */; };
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
@@ -88,6 +90,8 @@
 		824684861E5747840006E408 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		824684881E5747F40006E408 /* ChoiceOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceOptions.swift; sourceTree = "<group>"; };
 		8246848A1E57610C0006E408 /* YCQuestionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCQuestionTableViewController.swift; sourceTree = "<group>"; };
+		824684901E5A194F0006E408 /* YCMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCMainTableViewCell.swift; sourceTree = "<group>"; };
+		824684921E5A1B610006E408 /* YCEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCEnum.swift; sourceTree = "<group>"; };
 		82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YCValidation.swift; path = Views/YCValidation.swift; sourceTree = "<group>"; };
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,7 @@
 				824684571E534B4C0006E408 /* YCUtils.swift */,
 				824684591E534D550006E408 /* Constants.swift */,
 				8246845D1E53583B0006E408 /* YCActivityIndicator.swift */,
+				824684921E5A1B610006E408 /* YCEnum.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */,
 				82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */,
 				824684821E56DD8E0006E408 /* AddChoicesCollectionViewCell.swift */,
+				824684901E5A194F0006E408 /* YCMainTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -572,10 +578,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8246847B1E54B4EB0006E408 /* YCRegistationViewController.swift in Sources */,
+				824684911E5A194F0006E408 /* YCMainTableViewCell.swift in Sources */,
 				824684581E534B4C0006E408 /* YCUtils.swift in Sources */,
 				824684871E5747840006E408 /* Choice.swift in Sources */,
 				824684721E5478F40006E408 /* Photo.swift in Sources */,
 				82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */,
+				824684931E5A1B610006E408 /* YCEnum.swift in Sources */,
 				8246845E1E53583B0006E408 /* YCActivityIndicator.swift in Sources */,
 				8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */,
 				824684851E57102D0006E408 /* YCImageUpdateViewController.swift in Sources */,
