@@ -24,7 +24,6 @@ class YCMainTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }
 
 extension YCMainTableViewCell {
@@ -34,6 +33,7 @@ extension YCMainTableViewCell {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
+        collectionView.collectionViewLayout.invalidateLayout()
         collectionView.setContentOffset(collectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
         collectionView.reloadData()
     }

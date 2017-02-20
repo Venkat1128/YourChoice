@@ -44,6 +44,7 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewWillDisappear(animated)
         removeObservers()
     }
+    
     @IBAction func logoutAction(_ sender: Any) {
         YCDataModel.signOut()
         dismiss(animated: true, completion: nil)
@@ -80,19 +81,7 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         cell.questionLabel.text = poll.question
         
         let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
-        let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
-        
         cell.profileImageView.image = profilePicture
-        /*let pollImageViews = cell.getPollImageViews()
-        for (index, pollImageView) in pollImageViews.enumerated() {
-            // Check if there is an image for the current poll image view.
-            let hasImage = index < pollPictures.count
-            pollImageView.isHidden = !hasImage
-            if hasImage {
-                let pollPicture = pollPictures[index]
-                pollImageView.image = pollPicture != nil ? pollPicture! : UIImage(named: "PollPicture")!
-            }
-        }*/
     }
 }
  // MARK: - Initialisation methods.
@@ -160,7 +149,7 @@ extension YourChoiceViewController{
         }
     }
 }
-//MARK:- Tableview delegate and datasource
+//MARK:- Collectionview delegate and datasource
 extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -171,12 +160,10 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell",
-                                                      for: indexPath)
-        //cell.backgroundColor = polls[collectionView.tag][indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell", for: indexPath) as! YCMainCollectionViewCell
         let poll = polls[collectionView.tag]
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
-
+        cell.imageView.image = pollPictures[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -187,5 +174,8 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
     }
 }

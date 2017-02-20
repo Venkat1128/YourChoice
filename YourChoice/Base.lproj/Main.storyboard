@@ -658,7 +658,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cjE-Ia-T0b">
-                                                    <rect key="frame" x="16" y="48" width="296" height="208.5"/>
+                                                    <rect key="frame" x="16" y="48" width="296" height="210.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ueq-ET-mv3">
                                                         <size key="itemSize" width="100" height="100"/>
@@ -667,7 +667,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="YCMainCollectionCell" id="ecv-yr-0ro">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="YCMainCollectionCell" id="ecv-yr-0ro" customClass="YCMainCollectionViewCell" customModule="YourChoice" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -685,6 +685,9 @@
                                                                 <constraint firstAttribute="bottom" secondItem="xm6-3B-occ" secondAttribute="bottom" constant="-2" id="fk5-Ou-MhO"/>
                                                                 <constraint firstItem="xm6-3B-occ" firstAttribute="leading" secondItem="ecv-yr-0ro" secondAttribute="leading" constant="2" id="vxp-YQ-g1D"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="xm6-3B-occ" id="eV5-sX-rqb"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -693,7 +696,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="PKL-v5-amj" secondAttribute="trailing" id="B0g-bO-CcD"/>
                                                 <constraint firstItem="PKL-v5-amj" firstAttribute="leading" secondItem="VpX-1J-zT1" secondAttribute="trailing" constant="8" id="HgA-bI-YRR"/>
                                                 <constraint firstItem="cjE-Ia-T0b" firstAttribute="leading" secondItem="Rv5-18-Bzq" secondAttribute="leadingMargin" constant="8" id="KoZ-9N-fjC"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="cjE-Ia-T0b" secondAttribute="bottom" id="QbX-yY-v1P"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cjE-Ia-T0b" secondAttribute="bottom" constant="-2" id="QbX-yY-v1P"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="VpX-1J-zT1" secondAttribute="leading" constant="-8" id="ULI-70-inG"/>
                                                 <constraint firstItem="cjE-Ia-T0b" firstAttribute="trailing" secondItem="Rv5-18-Bzq" secondAttribute="trailingMargin" id="X2e-Hv-5Up"/>
                                                 <constraint firstAttribute="topMargin" secondItem="VpX-1J-zT1" secondAttribute="top" id="epc-PL-jH1"/>
