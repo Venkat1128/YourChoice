@@ -51,15 +51,29 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
     }
    
     //MARK:- Tableview delegate methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func willAnimateRotation(to toInterfaceOrientation:      UIInterfaceOrientation, duration: TimeInterval)
+    {
+        self.tableViewChoice.reloadData()
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
         return polls.count
     }
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerV = UIView()
+        headerV.backgroundColor = UIColor.white
+        return headerV
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let poll = polls[indexPath.row]
+        let poll = polls[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: YCMainTableViewCell.Identifier, for: indexPath) as! YCMainTableViewCell
-        configureCell(cell, poll: poll, rowIndex: indexPath.row)
+        configureCell(cell, poll: poll, rowIndex: indexPath.section)
         cell.layer.borderWidth = 2.0
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.cornerRadius = 10
@@ -70,15 +84,15 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let tableViewCell = cell as? YCMainTableViewCell else { return }
-        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
-        tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
+        tableViewCell.collectionViewOffset = storedOffsets[indexPath.section] ?? 0
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let tableViewCell = cell as? YCMainTableViewCell else { return }
         
-        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+        storedOffsets[indexPath.section] = tableViewCell.collectionViewOffset
     }
 
     func configureCell(_ cell: YCMainTableViewCell, poll: Choice, rowIndex: Int) {
@@ -175,7 +189,6 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.contentView.backgroundColor = UIColor.white
         let poll = polls[collectionView.tag]
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
-        //self.tableViewChoice.rowHeight = 100
         cell.imageView.image = pollPictures[indexPath.row]
         return cell
     }
