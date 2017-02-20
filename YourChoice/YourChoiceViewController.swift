@@ -165,7 +165,7 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         
-        return polls[0].pollOptions.count
+        return polls[ collectionView.tag].pollOptions.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -174,7 +174,18 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell",
                                                       for: indexPath)
         //cell.backgroundColor = polls[collectionView.tag][indexPath.item]
-        
+        let poll = polls[collectionView.tag]
+        let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
+
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.size.width
+        let cellWidth = (width - 10) / 2
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
