@@ -49,7 +49,8 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         YCDataModel.signOut()
         dismiss(animated: true, completion: nil)
     }
-
+   
+    //MARK:- Tableview delegate methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return polls.count
     }
@@ -82,10 +83,17 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
 
     func configureCell(_ cell: YCMainTableViewCell, poll: Choice, rowIndex: Int) {
         cell.questionLabel.text = poll.question
-        
         let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
+        let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
+        if pollPictures.count>3 {
+            tableViewChoice.rowHeight = 270
+        }else{
+            tableViewChoice.rowHeight = 170
+        }
         cell.profileImageView.image = profilePicture
     }
+    
+   
 }
  // MARK: - Initialisation methods.
 extension YourChoiceViewController{
@@ -164,10 +172,10 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell", for: indexPath) as! YCMainCollectionViewCell
-        cell.setImageViewProperties()
         cell.contentView.backgroundColor = UIColor.white
         let poll = polls[collectionView.tag]
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
+        //self.tableViewChoice.rowHeight = 100
         cell.imageView.image = pollPictures[indexPath.row]
         return cell
     }

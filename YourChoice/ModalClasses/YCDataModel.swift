@@ -203,7 +203,7 @@ extension YCDataModel{
 
     class func getProfilePicture(_ id: String?, rowIndex: Int?) -> UIImage {
         guard let id = id else {
-            return UIImage(named: "ProfilePicture")!
+            return UIImage(named: "Profile")!
         }
         
         let photo = fetchPhotoById(id)

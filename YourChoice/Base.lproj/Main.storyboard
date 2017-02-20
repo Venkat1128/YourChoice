@@ -633,6 +633,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4om-s0-bjU">
                                 <rect key="frame" x="10" y="120" width="300" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="YCMainTableViewCell" id="PZi-yh-lJv" customClass="YCMainTableViewCell" customModule="YourChoice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="300" height="270"/>
@@ -642,7 +643,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much wood could a woodchuck chuck if a woodchuck could chuck wood?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKL-v5-amj">
-                                                    <rect key="frame" x="59" y="8" width="233" height="35"/>
+                                                    <rect key="frame" x="59" y="8" width="225" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="73M-3t-0Ik"/>
                                                     </constraints>
@@ -650,10 +651,11 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="VpX-1J-zT1">
-                                                    <rect key="frame" x="16" y="8" width="35" height="35"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="VpX-1J-zT1">
+                                                    <rect key="frame" x="8" y="8" width="43" height="35"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="gHJ-7B-08G"/>
+                                                        <constraint firstAttribute="width" constant="43" id="gHJ-7B-08G"/>
                                                         <constraint firstAttribute="height" constant="35" id="oWv-3H-tIA"/>
                                                     </constraints>
                                                 </imageView>
@@ -674,8 +676,19 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="xm6-3B-occ">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="xm6-3B-occ">
                                                                         <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="2"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -695,11 +708,11 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PKL-v5-amj" secondAttribute="trailing" id="B0g-bO-CcD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PKL-v5-amj" secondAttribute="trailing" constant="8" id="B0g-bO-CcD"/>
                                                 <constraint firstItem="PKL-v5-amj" firstAttribute="leading" secondItem="VpX-1J-zT1" secondAttribute="trailing" constant="8" id="HgA-bI-YRR"/>
                                                 <constraint firstItem="cjE-Ia-T0b" firstAttribute="leading" secondItem="Rv5-18-Bzq" secondAttribute="leadingMargin" id="KoZ-9N-fjC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="cjE-Ia-T0b" secondAttribute="bottom" constant="6" id="QbX-yY-v1P"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="VpX-1J-zT1" secondAttribute="leading" constant="-8" id="ULI-70-inG"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="VpX-1J-zT1" secondAttribute="leading" id="ULI-70-inG"/>
                                                 <constraint firstItem="cjE-Ia-T0b" firstAttribute="trailing" secondItem="Rv5-18-Bzq" secondAttribute="trailingMargin" id="X2e-Hv-5Up"/>
                                                 <constraint firstAttribute="topMargin" secondItem="VpX-1J-zT1" secondAttribute="top" id="epc-PL-jH1"/>
                                                 <constraint firstAttribute="topMargin" secondItem="PKL-v5-amj" secondAttribute="top" id="k9U-R8-zyN"/>
