@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
 
     let SegmentedControlIndexKey = "SegmentedControlIndex"
     
@@ -99,10 +99,10 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         cell.questionLabel.text = poll.question
         let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
-        if pollPictures.count>3 {
-            tableViewChoice.rowHeight = 270
+        if pollPictures.count>2 {
+            tableViewChoice.rowHeight = 410
         }else{
-            tableViewChoice.rowHeight = 170
+            tableViewChoice.rowHeight = 235
         }
         cell.profileImageView.image = profilePicture
     }
