@@ -35,6 +35,7 @@ extension YCMainTableViewCell {
         collectionView.tag = row
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.setContentOffset(collectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
+        collectionView.backgroundColor = UIColor.white
         collectionView.reloadData()
     }
     

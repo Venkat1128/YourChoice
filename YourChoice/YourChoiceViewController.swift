@@ -59,7 +59,10 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         let poll = polls[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: YCMainTableViewCell.Identifier, for: indexPath) as! YCMainTableViewCell
         configureCell(cell, poll: poll, rowIndex: indexPath.row)
-        
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor.gray.cgColor
+        cell.layer.cornerRadius = 10
+        cell.contentView.backgroundColor = UIColor.white
         return cell
     }
     
@@ -161,6 +164,8 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell", for: indexPath) as! YCMainCollectionViewCell
+        cell.setImageViewProperties()
+        cell.contentView.backgroundColor = UIColor.white
         let poll = polls[collectionView.tag]
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
         cell.imageView.image = pollPictures[indexPath.row]
