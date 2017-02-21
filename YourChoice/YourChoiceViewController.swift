@@ -49,6 +49,14 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         YCDataModel.signOut()
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == GetVoteSegue {
+            let viewController = segue.destination as! YCGetVotePageViewController//TestViewController
+            let poll = sender as! Choice
+            viewController.poll = poll
+        }
+    }
    
     //MARK:- Tableview delegate methods
     override func willAnimateRotation(to toInterfaceOrientation:      UIInterfaceOrientation, duration: TimeInterval)
@@ -206,5 +214,7 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        let poll = polls[collectionView.tag]
+        performSegue(withIdentifier: GetVoteSegue, sender: poll)
     }
 }
