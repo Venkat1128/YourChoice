@@ -197,6 +197,28 @@ extension YCDataModel{
         
         return photos
     }
+    class func voteOnPoll(_ poll: Choice, pollOptionIndex: Int) {
+        let voteCount = fireDatabase.child(FirebaseConstants.Polls).child(poll.id!).child(FirebaseConstants.PollOptions).child(String(pollOptionIndex)).child(FirebaseConstants.VoteCount)
+        voteCount.runTransactionBlock() { currentData in
+            let count = currentData.value as? Int ?? 0
+            currentData.value = count + 1
+            return FIRTransactionResult.success(withValue: currentData)
+        }
+        
+        let votedPolls = fireDatabase.child(FirebaseConstants.Users).child(getUserId()).child(FirebaseConstants.VotedPolls).child(poll.id!)
+        votedPolls.setValue(pollOptionIndex)
+    }
+    
+    class func getPollOptionIndex(_ poll: Choice) {
+        let pollOptionIndex = fireDatabase.child(FirebaseConstants.Users).child(getUserId()).child(FirebaseConstants.VotedPolls).child(poll.id!)
+        pollOptionIndex.observeSingleEvent(of: .value, with: { snapshot in
+            var userInfo: [String: AnyObject]? = nil
+            if let index = snapshot.value as? NSNumber {
+                userInfo = [NotificationData.PollOptionIndex: Int(index) as AnyObject]
+            }
+            defaultCenter.post(name: Notification.Name(rawValue: NotificationNames.GetPollOptionIndexCompleted), object: nil, userInfo: userInfo)
+        })
+    }
 }
 //MARK: - Firebase storage
 extension YCDataModel{

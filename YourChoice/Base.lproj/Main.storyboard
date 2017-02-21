@@ -761,6 +761,7 @@
                         <outlet property="segmentedControl" destination="NtJ-vv-wiR" id="B5h-yb-DcN"/>
                         <outlet property="tableViewActivityIndicator" destination="4ae-td-Vm0" id="Wea-fm-yqp"/>
                         <outlet property="tableViewChoice" destination="4om-s0-bjU" id="sq8-Pj-cfE"/>
+                        <segue destination="uxZ-bw-vAw" kind="show" identifier="GetVoteSegue" id="q9O-Tb-M01"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWx-7D-MKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -785,10 +786,174 @@
             </objects>
             <point key="canvasLocation" x="1149" y="894"/>
         </scene>
+        <!--Get Vote-->
+        <scene sceneID="QCU-ed-29x">
+            <objects>
+                <viewController storyboardIdentifier="YCGetVotePageViewController" id="uxZ-bw-vAw" customClass="YCGetVotePageViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zbc-p1-YbA"/>
+                        <viewControllerLayoutGuide type="bottom" id="MOv-Jh-BL7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ip3-Fb-yQs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-K5-vJZ">
+                                <rect key="frame" x="16" y="64" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="abG-Rz-zdm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNz-TT-Y8b">
+                                <rect key="frame" x="28" y="112" width="264" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gu-8D-0SD">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="MWS-cg-10x"/>
+                                            <constraint firstAttribute="height" constant="60" id="hhe-oR-WH7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" backgroundImage="PollPicture">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmc-CU-Fxn">
+                                        <rect key="frame" x="68" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="1Y8-5v-Tr7"/>
+                                            <constraint firstAttribute="width" constant="60" id="F3k-3A-rNx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" backgroundImage="PollPicture"/>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46l-JW-ktu">
+                                        <rect key="frame" x="136" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="V0x-ff-nOL"/>
+                                            <constraint firstAttribute="height" constant="60" id="bZ8-Bk-dbQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" backgroundImage="PollPicture"/>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPZ-Yc-8UF">
+                                        <rect key="frame" x="204" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Gel-0O-vsY"/>
+                                            <constraint firstAttribute="width" constant="60" id="NUS-8C-Jgr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" backgroundImage="PollPicture"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-kn-ONj">
+                                <rect key="frame" x="-4" y="180" width="328" height="388"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="zdy-K5-vJZ" secondAttribute="leading" id="Kvv-yV-BBp"/>
+                            <constraint firstItem="kqf-kn-ONj" firstAttribute="leading" secondItem="ip3-Fb-yQs" secondAttribute="leadingMargin" constant="-20" id="OXi-XI-QcE"/>
+                            <constraint firstItem="MOv-Jh-BL7" firstAttribute="top" secondItem="kqf-kn-ONj" secondAttribute="bottom" id="REy-hh-mxP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zdy-K5-vJZ" secondAttribute="trailing" id="RWD-vz-bVu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kqf-kn-ONj" secondAttribute="trailing" constant="-20" id="Wi4-mq-qz7"/>
+                            <constraint firstItem="ZNz-TT-Y8b" firstAttribute="centerX" secondItem="ip3-Fb-yQs" secondAttribute="centerX" id="fh2-Nh-84F"/>
+                            <constraint firstItem="ZNz-TT-Y8b" firstAttribute="top" secondItem="zdy-K5-vJZ" secondAttribute="bottom" constant="8" id="gHX-2f-FlZ"/>
+                            <constraint firstItem="zdy-K5-vJZ" firstAttribute="top" secondItem="zbc-p1-YbA" secondAttribute="bottom" id="x0u-Z5-Y3s"/>
+                            <constraint firstItem="kqf-kn-ONj" firstAttribute="top" secondItem="ZNz-TT-Y8b" secondAttribute="bottom" constant="8" id="x4u-qH-Dal"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Get Vote" id="R8G-86-209"/>
+                    <connections>
+                        <outlet property="pageViewControllerView" destination="kqf-kn-ONj" id="MJi-QX-8BZ"/>
+                        <outlet property="questionLabel" destination="zdy-K5-vJZ" id="292-HP-4P2"/>
+                        <outlet property="thumbnailsStackView" destination="ZNz-TT-Y8b" id="YUw-ty-tqd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5B5-nZ-1Km" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="1255"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Dv1-jp-pjG">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="SEH-Xv-sCg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sn9-yi-IJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3799" y="1253"/>
+        </scene>
+        <!--Get Vote View Controller-->
+        <scene sceneID="vfz-4u-TOr">
+            <objects>
+                <viewController storyboardIdentifier="YCGetVoteViewController" id="bLm-uM-ltv" customClass="YCGetVoteViewController" customModule="YourChoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G40-ED-yD7"/>
+                        <viewControllerLayoutGuide type="bottom" id="LOg-Np-tC1"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="mvi-zu-2DT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXH-NB-V2w">
+                                <rect key="frame" x="130" y="488" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="O7P-s6-btF"/>
+                                    <constraint firstAttribute="height" constant="60" id="ccC-hd-fH4"/>
+                                </constraints>
+                                <state key="normal" image="TickNormal"/>
+                                <connections>
+                                    <action selector="vote:" destination="bLm-uM-ltv" eventType="touchUpInside" id="Ij6-VZ-NhY"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w9s-s6-uSi">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zp9-J9-BeO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image unavailable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhW-W5-w5S">
+                                <rect key="frame" x="92" y="274" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zp9-J9-BeO" secondAttribute="trailing" id="5KX-I4-eyG"/>
+                            <constraint firstItem="YhW-W5-w5S" firstAttribute="centerX" secondItem="mvi-zu-2DT" secondAttribute="centerX" id="6FW-3A-veA"/>
+                            <constraint firstItem="hXH-NB-V2w" firstAttribute="top" secondItem="zp9-J9-BeO" secondAttribute="bottom" constant="8" id="6gq-VD-Hbf"/>
+                            <constraint firstItem="w9s-s6-uSi" firstAttribute="centerY" secondItem="mvi-zu-2DT" secondAttribute="centerY" id="KGt-kd-ZBv"/>
+                            <constraint firstItem="LOg-Np-tC1" firstAttribute="top" secondItem="hXH-NB-V2w" secondAttribute="bottom" constant="20" id="UJF-J4-eFq"/>
+                            <constraint firstItem="hXH-NB-V2w" firstAttribute="centerX" secondItem="mvi-zu-2DT" secondAttribute="centerX" id="avZ-Jn-0Q7"/>
+                            <constraint firstItem="w9s-s6-uSi" firstAttribute="centerX" secondItem="mvi-zu-2DT" secondAttribute="centerX" id="bGa-9I-rrd"/>
+                            <constraint firstItem="zp9-J9-BeO" firstAttribute="leading" secondItem="mvi-zu-2DT" secondAttribute="leading" id="eVO-hW-52Y"/>
+                            <constraint firstItem="YhW-W5-w5S" firstAttribute="centerY" secondItem="mvi-zu-2DT" secondAttribute="centerY" id="ixg-Pg-4c5"/>
+                            <constraint firstItem="zp9-J9-BeO" firstAttribute="top" secondItem="G40-ED-yD7" secondAttribute="bottom" id="wQ6-f5-pwa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageActivityIndicator" destination="w9s-s6-uSi" id="jVA-wT-VR7"/>
+                        <outlet property="imageUnavailableLabel" destination="YhW-W5-w5S" id="Yyw-Js-ExU"/>
+                        <outlet property="pollPictureImageView" destination="zp9-J9-BeO" id="joY-T3-P6D"/>
+                        <outlet property="voteButton" destination="hXH-NB-V2w" id="B7r-t0-ZzQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ak3-tl-Nbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4532" y="1255"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="PollPicture" width="16" height="16"/>
         <image name="PollQues" width="24" height="24"/>
         <image name="Profile" width="48" height="48"/>
         <image name="ProfilePicture" width="100" height="100"/>
+        <image name="TickNormal" width="16" height="16"/>
     </resources>
 </document>

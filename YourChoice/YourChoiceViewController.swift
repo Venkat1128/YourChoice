@@ -11,7 +11,7 @@ import UIKit
 class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
 
     let SegmentedControlIndexKey = "SegmentedControlIndex"
-    
+    let GetVoteSegue = "GetVoteSegue"
     let userDefaults = UserDefaults.standard
     let defaultCenter = NotificationCenter.default
     var polls = [Choice]()
@@ -106,7 +106,10 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
         }
         cell.profileImageView.image = profilePicture
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let poll = polls[indexPath.section]
+        performSegue(withIdentifier: GetVoteSegue, sender: poll)
+    }
    
 }
  // MARK: - Initialisation methods.
