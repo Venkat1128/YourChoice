@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-uQ-nBg">
-                                <rect key="frame" x="16" y="139" width="288" height="290"/>
+                                <rect key="frame" x="16" y="132" width="288" height="304"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Sign in with Your Choice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKU-Gb-gGR">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="70"/>
@@ -56,8 +56,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWI-YJ-rBX">
-                                        <rect key="frame" x="0.0" y="220" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="220" width="288" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="R7Y-eU-ReH"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +70,7 @@
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                 <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pN-Gv-DNy">
-                                        <rect key="frame" x="0.0" y="260" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="274" width="288" height="30"/>
                                         <state key="normal" title="Forget your password?"/>
                                         <connections>
                                             <action selector="resetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vya-d4-wCh"/>
@@ -97,7 +100,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="enY-bl-p5R">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="ngR-tr-fqg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="ngR-tr-fqg">
+                            <connections>
+                                <segue destination="Wbt-xr-dNr" kind="show" id="OpW-8A-PKj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailValidationView" destination="obH-Yc-qqE" id="iJG-Z0-Uvu"/>
@@ -190,7 +197,10 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -825,8 +835,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-1J-ssm">
-                                <rect key="frame" x="16" y="516" width="288" height="32"/>
+                                <rect key="frame" x="16" y="510" width="288" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hfh-cN-f1c"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -842,6 +855,9 @@
                                         <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerAction:" destination="Wbt-xr-dNr" eventType="touchUpInside" id="FWC-Gm-5sM"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QOL-GN-KXn">
                                 <rect key="frame" x="16" y="186" width="288" height="196"/>
@@ -922,10 +938,10 @@
                                 <variation key="widthClass=compact" axis="vertical"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUr-u9-CU8">
-                                <rect key="frame" x="16" y="28" width="288" height="150"/>
+                                <rect key="frame" x="16" y="72" width="288" height="106"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-eX-lt5">
-                                        <rect key="frame" x="94" y="25" width="100" height="100"/>
+                                        <rect key="frame" x="94" y="3" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="2yD-7F-9Pz"/>
                                             <constraint firstAttribute="height" constant="100" id="BOi-A9-CVe"/>
@@ -949,7 +965,7 @@
                             <constraint firstItem="QOL-GN-KXn" firstAttribute="leading" secondItem="k3A-rq-fDf" secondAttribute="leadingMargin" id="bgt-t2-PUD"/>
                             <constraint firstItem="QOL-GN-KXn" firstAttribute="centerY" secondItem="k3A-rq-fDf" secondAttribute="centerY" id="hMo-0k-WVl"/>
                             <constraint firstItem="TUr-u9-CU8" firstAttribute="top" secondItem="FUl-Af-3Qc" secondAttribute="bottom" constant="8" id="o4T-1P-g9b"/>
-                            <constraint firstItem="ZTv-5K-Rz3" firstAttribute="top" secondItem="bdS-1J-ssm" secondAttribute="bottom" constant="20" id="uQt-mj-0kE"/>
+                            <constraint firstItem="ZTv-5K-Rz3" firstAttribute="top" secondItem="bdS-1J-ssm" secondAttribute="bottom" constant="14" id="uQt-mj-0kE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bdS-1J-ssm" secondAttribute="leading" id="vea-tJ-tpP"/>
                             <constraint firstItem="QOL-GN-KXn" firstAttribute="centerX" secondItem="k3A-rq-fDf" secondAttribute="centerX" id="yLa-se-upe"/>
                         </constraints>
@@ -959,7 +975,7 @@
                         <outlet property="emailValidationView" destination="J4e-td-0Pb" id="k5E-4s-XJc"/>
                         <outlet property="passwordValidationView" destination="hWc-XZ-AA5" id="4D7-tn-29x"/>
                         <outlet property="profilePictureImage" destination="P1H-eX-lt5" id="qYG-ZW-4Gy"/>
-                        <outlet property="registerButton" destination="bdS-1J-ssm" id="BSb-9Y-UOb"/>
+                        <outlet property="registerButton" destination="bdS-1J-ssm" id="8nB-dq-Ltv"/>
                         <outlet property="usernameValidationView" destination="Lad-qc-Lxd" id="oay-dL-2ha"/>
                     </connections>
                 </viewController>
