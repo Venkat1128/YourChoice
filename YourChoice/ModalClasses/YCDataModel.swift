@@ -9,6 +9,30 @@
 import UIKit
 import Firebase
 import CoreData
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
+}
 //MARK:- YC Data Model
 class YCDataModel: NSObject {
     
@@ -21,9 +45,9 @@ class YCDataModel: NSObject {
     fileprivate class var fireDatabase: FIRDatabaseReference{
         return FIRDatabase.database().reference()
     }
-    
-    
+
     fileprivate class var fireStorage: FIRStorageReference{
+        FIRStorage.storage().maxDownloadRetryTime = MaxDownloadRetryTime
         return FIRStorage.storage().reference()
     }
     
