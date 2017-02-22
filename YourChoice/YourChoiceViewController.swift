@@ -161,8 +161,11 @@ extension YourChoiceViewController{
         }
         
         let rowIndex = userInfo[NotificationData.RowIndex] as! Int
+        print(rowIndex)
         let indexPath = IndexPath(row: rowIndex, section: 0)
+        tableViewChoice.beginUpdates()
         tableViewChoice.reloadRows(at: [indexPath], with: .none)
+        tableViewChoice.endUpdates()
     }
 
 }
