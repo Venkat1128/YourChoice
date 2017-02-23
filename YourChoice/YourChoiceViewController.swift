@@ -8,12 +8,12 @@
 
 import UIKit
 
-class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
+class YourChoiceViewController: YCBaseViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
 
     let SegmentedControlIndexKey = "SegmentedControlIndex"
     let GetVoteSegue = "GetVoteSegue"
     let userDefaults = UserDefaults.standard
-    let defaultCenter = NotificationCenter.default
+    //let defaultCenter = NotificationCenter.default
     var polls = [Choice]()
     var pollsType = PollsType.myPolls
     var storedOffsets = [Int: CGFloat]()
@@ -105,6 +105,7 @@ class YourChoiceViewController: UIViewController,UITableViewDelegate,UITableView
 
     func configureCell(_ cell: YCMainTableViewCell, poll: Choice, rowIndex: Int) {
         cell.questionLabel.text = poll.question
+        toggleRequestProgress(true)
         let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
         if pollPictures.count>2 {
@@ -155,6 +156,7 @@ extension YourChoiceViewController{
     }
     
     func photoDownloadCompleted(_ notification: Notification) {
+        toggleRequestProgress(false)
         guard let userInfo = notification.userInfo else {
             print(Error.UserInfoNoData)
             return
@@ -180,6 +182,9 @@ extension YourChoiceViewController{
         default:
             YCDataModel.addAllPollsListObserver()
         }
+    }
+    func toggleRequestProgress(_ inProgress: Bool) {
+        inProgress ? activityIndicatorUtils.showProgressView(view) : activityIndicatorUtils.hideProgressView()
     }
 }
 //MARK:- Collectionview delegate and datasource
