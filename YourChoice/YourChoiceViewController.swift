@@ -108,6 +108,7 @@ class YourChoiceViewController: YCBaseViewController,UITableViewDelegate,UITable
         toggleRequestProgress(true)
         let profilePicture = YCDataModel.getProfilePicture(poll.profilePictureId, rowIndex: rowIndex)
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: rowIndex)
+        toggleRequestProgress(false)
         if pollPictures.count>2 {
             tableViewChoice.rowHeight = 410
         }else{
@@ -157,10 +158,6 @@ extension YourChoiceViewController{
     
     func photoDownloadCompleted(_ notification: Notification) {
         toggleRequestProgress(false)
-        guard let userInfo = notification.userInfo else {
-            print(Error.UserInfoNoData)
-            return
-        }
         tableViewChoice.reloadData()
     }
 
