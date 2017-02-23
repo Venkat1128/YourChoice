@@ -123,13 +123,25 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     // MARK: - REST calls and response methods.
     
     func authUser(_ email: String, password: String) {
-        toggleRequestProgress(true)
-        YCDataModel.signInWithEmail(email, password: password)
+        if YCDataModel.isConnectedToNetwork() {
+            toggleRequestProgress(true)
+            YCDataModel.signInWithEmail(email, password: password)
+        }
+        else{
+            createAlertController(Error.NetworkErrorTitle, message: Error.NetworkErrorMsg)
+        }
     }
     
     func resetPasswordForUser(_ email: String) {
-        toggleRequestProgress(true)
-        YCDataModel.resetPasswordWithEmail(email)
+        
+        if YCDataModel.isConnectedToNetwork() {
+            toggleRequestProgress(true)
+            YCDataModel.resetPasswordWithEmail(email)
+        }
+        else{
+            createAlertController(Error.NetworkErrorTitle, message: Error.NetworkErrorMsg)
+        }
+        
     }
     
     func authUserCompleted(_ notification: Notification) {

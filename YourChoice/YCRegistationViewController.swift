@@ -140,8 +140,13 @@ extension YCRegistationViewController{
 extension YCRegistationViewController{
     
     func createUser(_ username: String, email: String, password: String, profilePicture: UIImage?) {
-        toggleRequestProgress(true)
-        YCDataModel.createUserWithEmail(username, email: email, password: password, profilePicture: profilePicture)
+        if YCDataModel.isConnectedToNetwork() {
+            toggleRequestProgress(true)
+            YCDataModel.createUserWithEmail(username, email: email, password: password, profilePicture: profilePicture)
+        }
+        else{
+            createAlertController(Error.NetworkErrorTitle, message: Error.NetworkErrorMsg)
+        }
     }
     
     func createUserCompleted(_ notification: Notification) {

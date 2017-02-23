@@ -99,4 +99,9 @@ struct Error {
     static let UnableToUploadProfilePicture = "Unable to upload profile picture. Would you like to try again?"
     static let UserInfoNoData = "No data passsed to user info!"
     static let UnableToDownloadImage = "Unable to download image."
+    
+    static let LoginError = "Login error"
+    static let NetworkErrorTitle = "Connection Error"
+    static let NetworkErrorMsg = "Network Not Reachbale!"
+    
 }
