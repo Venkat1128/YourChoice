@@ -38,7 +38,6 @@
 		82C507CD1E51CEB3005D1DF7 /* YCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C507CC1E51CEB3005D1DF7 /* YCValidation.swift */; };
 		82C507CF1E51CF3E005D1DF7 /* YCValidation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */; };
 		82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */; };
-		82F7CED11E4F8B23001FB75D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7CED01E4F8B23001FB75D /* ViewController.swift */; };
 		82F7CED41E4F8B23001FB75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F7CED21E4F8B23001FB75D /* Main.storyboard */; };
 		82F7CED61E4F8B23001FB75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F7CED51E4F8B23001FB75D /* Assets.xcassets */; };
 		82F7CED91E4F8B23001FB75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F7CED71E4F8B23001FB75D /* LaunchScreen.storyboard */; };
@@ -102,7 +101,6 @@
 		82C507CE1E51CF3E005D1DF7 /* YCValidation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YCValidation.xib; path = Views/YCValidation.xib; sourceTree = "<group>"; };
 		82F7CECB1E4F8B23001FB75D /* YourChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82F7CED01E4F8B23001FB75D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		82F7CED31E4F8B23001FB75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82F7CED51E4F8B23001FB75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82F7CED81E4F8B23001FB75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				824684531E5346620006E408 /* Controllers */,
 				82C507CB1E51CD9D005D1DF7 /* Views */,
 				82F7CECE1E4F8B23001FB75D /* AppDelegate.swift */,
-				82F7CED01E4F8B23001FB75D /* ViewController.swift */,
 				82F7CED21E4F8B23001FB75D /* Main.storyboard */,
 				82F7CED51E4F8B23001FB75D /* Assets.xcassets */,
 				82F7CED71E4F8B23001FB75D /* LaunchScreen.storyboard */,
@@ -597,7 +594,6 @@
 				8246845C1E534DCF0006E408 /* YCLoginViewController.swift in Sources */,
 				824684851E57102D0006E408 /* YCImageUpdateViewController.swift in Sources */,
 				8246849C1E5CA81D0006E408 /* YCGetVotePageViewController.swift in Sources */,
-				82F7CED11E4F8B23001FB75D /* ViewController.swift in Sources */,
 				8246846D1E5475180006E408 /* YourChoice.xcdatamodeld in Sources */,
 				82F7CECF1E4F8B23001FB75D /* AppDelegate.swift in Sources */,
 				824684791E547D200006E408 /* CoreDataStackManager.swift in Sources */,

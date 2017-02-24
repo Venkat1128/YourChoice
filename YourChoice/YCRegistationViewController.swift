@@ -80,12 +80,12 @@ extension YCRegistationViewController{
     func initProfilePic(){
         let geastureRecogniser:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(YCRegistationViewController.setProfilePicture))
         geastureRecogniser.delegate = self
-        self.profilePictureImage.addGestureRecognizer(geastureRecogniser)
-        self.profilePictureImage.isUserInteractionEnabled = true
-        self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width / 2;
-        self.profilePictureImage.clipsToBounds = true;
-        self.profilePictureImage.layer.borderWidth = 3.0;
-        self.profilePictureImage.layer.borderColor = UIColor.white.cgColor;
+        profilePictureImage.addGestureRecognizer(geastureRecogniser)
+        profilePictureImage.isUserInteractionEnabled = true
+        profilePictureImage.layer.cornerRadius = profilePictureImage.frame.size.width / 2;
+        profilePictureImage.clipsToBounds = true;
+        profilePictureImage.layer.borderWidth = 3.0;
+        profilePictureImage.layer.borderColor = UIColor.white.cgColor;
     }
     func setProfilePicture(){
         createImagePickerAlertController()

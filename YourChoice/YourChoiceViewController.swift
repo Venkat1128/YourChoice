@@ -13,12 +13,10 @@ class YourChoiceViewController: YCBaseViewController,UITableViewDelegate,UITable
     let SegmentedControlIndexKey = "SegmentedControlIndex"
     let GetVoteSegue = "GetVoteSegue"
     let userDefaults = UserDefaults.standard
-    //let defaultCenter = NotificationCenter.default
     var polls = [Choice]()
     var pollsType = PollsType.myPolls
     var storedOffsets = [Int: CGFloat]()
     // MARK: - Interface builder outlets and actions.
-    
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableViewChoice: UITableView!
@@ -166,7 +164,15 @@ extension YourChoiceViewController{
     
     func photoDownloadCompleted(_ notification: Notification) {
         toggleRequestProgress(false)
-        tableViewChoice.reloadData()
+        //tableViewChoice.reloadData()
+        guard let userInfo = notification.userInfo else {
+            print(Error.UserInfoNoData)
+            return
+        }
+        
+        let rowIndex = userInfo[NotificationData.RowIndex] as! Int
+        let indexPath = IndexPath(row: rowIndex, section: 0)
+        tableViewChoice.reloadRows(at: [indexPath], with: .none)
     }
 
 }
