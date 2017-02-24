@@ -215,7 +215,14 @@ extension AddChoicesViewController{
                 images.append(image)
             }
         }
-        YCDataModel.addPoll(question, images: images)
+        if YCDataModel.isConnectedToNetwork() {
+            toggleRequestProgress(true)
+            YCDataModel.addPoll(question, images: images)
+            toggleRequestProgress(false)
+        }
+        else{
+            createAlertController(Error.NetworkErrorTitle, message: Error.NetworkErrorMsg)
+        }
     }
 }
 extension AddChoicesViewController{
@@ -226,5 +233,8 @@ extension AddChoicesViewController{
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
+    }
+    func toggleRequestProgress(_ inProgress: Bool) {
+        inProgress ? activityIndicatorUtils.showProgressView(view) : activityIndicatorUtils.hideProgressView()
     }
 }

@@ -46,8 +46,16 @@ class YourChoiceViewController: YCBaseViewController,UITableViewDelegate,UITable
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        YCDataModel.signOut()
-        dismiss(animated: true, completion: nil)
+        
+        if YCDataModel.isConnectedToNetwork() {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            YCDataModel.signOut()
+            dismiss(animated: true, completion: nil)
+        }
+        else{
+            createAlertController(Error.NetworkErrorTitle, message: Error.NetworkErrorMsg)
+        }
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -198,8 +206,11 @@ extension YourChoiceViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YCMainCollectionCell", for: indexPath) as! YCMainCollectionViewCell
         cell.contentView.backgroundColor = UIColor.white
         let poll = polls[collectionView.tag]
+        toggleRequestProgress(true)
         let pollPictures = YCDataModel.getPollPictures(poll, isThumbnail: true, rowIndex: collectionView.tag)
-        cell.imageView.image = pollPictures[indexPath.row]
+        toggleRequestProgress(false)
+        
+        cell.imageView.image = pollPictures[indexPath.row] != nil ? pollPictures[indexPath.row]! : UIImage(named: "ProfilePicture")!
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -40,6 +40,10 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //Check if nertwork activity indicator is true ..if yes stop the indicator
+        if UIApplication.shared.isNetworkActivityIndicatorVisible {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
         addObservers()
         YCDataModel.authUser() { isCurrentUser in
             if isCurrentUser {
