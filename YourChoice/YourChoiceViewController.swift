@@ -181,6 +181,7 @@ extension YourChoiceViewController{
     
     func updateTableViewState(_ tableViewState: TableViewState) {
         emptyLabel.isHidden = TableViewState.empty != tableViewState
+        tableViewChoice.isHidden = !emptyLabel.isHidden
         tableViewActivityIndicator.isHidden = TableViewState.loading != tableViewState
         TableViewState.loading == tableViewState ? tableViewActivityIndicator.startAnimating() : tableViewActivityIndicator.stopAnimating()
     }

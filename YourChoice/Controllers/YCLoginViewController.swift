@@ -191,6 +191,10 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
     // MARK: - UITextFieldDelegate methods.
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == passwordValidationView.inputTextField {
+            self.animateTextField(textField: textField, up:false)
+        }
+
         switch textField {
         case emailValidationView.inputTextField:
             emailValidationView.errorLabel.isHidden = true
@@ -221,4 +225,34 @@ class YCLoginViewController: YCBaseViewController,UITextFieldDelegate,Validation
         
         return true
     }
+    func animateTextField(textField: UITextField, up: Bool)
+    {
+        let movementDistance:CGFloat = -100
+        let movementDuration: Double = 0.3
+        
+        var movement:CGFloat = 0
+        if up
+        {
+            movement = movementDistance
+        }
+        else
+        {
+            movement = -movementDistance
+        }
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if textField == passwordValidationView.inputTextField {
+             self.animateTextField(textField: textField, up:true)
+        }
+       
+    }
+
 }
